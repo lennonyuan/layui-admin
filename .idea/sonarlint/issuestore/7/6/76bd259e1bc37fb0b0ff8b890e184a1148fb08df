@@ -1,0 +1,7 @@
+
+qsquid:S1192/"UDefine a constant instead of duplicating this literal "ç»„ç»‡æœºæž„idä¸ºç©º" 3 times.(ÁÊ¤ úÿÿÿÿ
+usquid:S2293#"YReplace the type specification in this constructor call with the diamond operator ("<>").(ý¾þÊüÿÿÿÿ
+usquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(˜™ÿµúÿÿÿÿ
+qsquid:S2293›"YReplace the type specification in this constructor call with the diamond operator ("<>").(§Ã´Å
+Wsquid:S1854#";Remove this useless assignment to local variable "orgList".(ý¾þÊüÿÿÿÿ
+Qsquid:S2130Ç"9Use "Integer.parseInt" for this string-to-int conversion.(‚ã—ü

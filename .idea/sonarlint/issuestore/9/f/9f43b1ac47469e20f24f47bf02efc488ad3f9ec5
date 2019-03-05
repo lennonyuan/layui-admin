@@ -1,0 +1,13 @@
+
+usquid:S00116
+"VRename this field "GoodsNumber" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÜÔØ¶8ÏÂÂ”-
+tsquid:S00116"PRename this field "State" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õ¾ñàúÿÿÿÿ8ÏÂÂ”-
+ssquid:S00116"TRename this field "ApplyTime" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ç«Òı8ÏÂÂ”-
+qsquid:S00116	"RRename this field "GoodsId" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§ÔÒÍ8ÏÂÂ”-
+wsquid:S00116"XRename this field "AuditDescribe" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Íƒ¦ú8ÏÂÂ”-
+rsquid:S00116"TRename this field "ApplyUser" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡ªœ8ÏÂÂ”-
+wsquid:S00116"XRename this field "ApplyDescribe" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ï¾ãĞ8ÏÂÂ”-
+lsquid:S00116"MRename this field "Id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›ÖÒß8ÏÂÂ”-
+}squid:S00116"YRename this field "OrderAuditUser" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(©šÔıÿÿÿÿ8ÏÂÂ”-
+ssquid:S00116"TRename this field "OrderType" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–ÌÌ8ÏÂÂ”-
+}squid:S00116"YRename this field "OrderAuditTime" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚¢¾Âşÿÿÿÿ8ÏÂÂ”-

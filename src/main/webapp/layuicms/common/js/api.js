@@ -143,7 +143,15 @@ layui.define(['$tool','jquery'], function (exports) {
         },
         UpdateUserInfo:function(req,config,successCallback,errorCallback){
             doComplexPost($tool.getContext() + 'personCenter/update.do',req,config,successCallback,errorCallback);
-        }
+        },
+        DeleteMarterial: function (req, config, successCallback, errorCallback) {
+            doPost($tool.getContext() + '/material/delete', req, config, successCallback, errorCallback);
+        },
+        AddMaterial:function(req,config,successCallback,errorCallback){
+            doComplexPost($tool.getContext() + '/material/add',req,config,successCallback,errorCallback);
+        },
+
+
     };
 
 

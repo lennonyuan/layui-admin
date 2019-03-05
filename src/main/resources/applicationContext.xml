@@ -20,12 +20,7 @@
 	<!--shiro配置相关-->
 	<import resource="applicationContext-security.xml"/>
 
-	<bean id="mapperScannerConfigurer" class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
-		<!--传入工厂-->
-		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
-		<!--扫描包哪些包下的接口-->
-		<property name="basePackage" value="cn.ssm.sys.dao"/>
-	</bean>
+
 
 
 </beans>
