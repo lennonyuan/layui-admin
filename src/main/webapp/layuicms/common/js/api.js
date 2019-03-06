@@ -147,11 +147,17 @@ layui.define(['$tool','jquery'], function (exports) {
         DeleteMarterial: function (req, config, successCallback, errorCallback) {
             doPost($tool.getContext() + '/material/delete', req, config, successCallback, errorCallback);
         },
-        AddMaterial:function(req,config,successCallback,errorCallback){
-            doComplexPost($tool.getContext() + '/material/add',req,config,successCallback,errorCallback);
+        AddMaterial:function(req,successCallback,errorCallback){
+            doPost($tool.getContext() + '/material/add',req,successCallback,errorCallback);
         },
-
-
+        //
+        GetMaterial:function(req,successCallback,errorCallback){
+            doPost($tool.getContext()+'/material/get',req,successCallback,errorCallback);
+        },
+        //
+        UpdateMaterial:function(req,successCallback,errorCallback){
+            doPost($tool.getContext()+'/material/update',req,successCallback,errorCallback);
+        },
     };
 
 

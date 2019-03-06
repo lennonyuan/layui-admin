@@ -2,6 +2,6 @@
 tsquid:S00116	"URename this field "SourceTime" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§ïÊà8ÂÌÂ”-
 vsquid:S00116
 "WRename this field "RecordNumber" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŸåĞ¤8ÂÌÂ”-
-tsquid:S00116"PRename this field "State" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õ¾ñàúÿÿÿÿ8ÂÌÂ”-
 lsquid:S00116"MRename this field "Id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›ÖÒß8ÂÌÂ”-
+tsquid:S00116"PRename this field "State" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õ¾ñàúÿÿÿÿ8ÂÌÂ”-
 ysquid:S00116"URename this field "SourceUser" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ğôúùÿÿÿÿ8ÂÌÂ”-

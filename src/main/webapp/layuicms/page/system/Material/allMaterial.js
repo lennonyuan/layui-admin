@@ -118,7 +118,7 @@ layui.config({
         var index = layui.layer.open({
             title: "编辑角色",
             type: 2,
-            content: "editRole.html?id="+id,
+            content: "editMaterial.html?Id="+id,
             success: function (layero, index) {
                 setTimeout(function () {
                     layui.layer.tips('点击此处返回角色列表', '.layui-layer-setwin .layui-layer-close', {

@@ -1,14 +1,14 @@
 
-hsquid:S4488R"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(”²†¸8ìúµİ”-
-hsquid:S4488;"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(Ú¿Ìã8ã¾¼Ê”-
-psquid:S00117="QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ê·ƒ²8ÁÁÄí”-
-gsquid:S4488B"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(ï˜¦8ÚÄÂÊ”-
-psquid:S00117="QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ê·ƒ²8ÁÁÄí”-
-ysquid:UselessImportCheck"NRemove this unused import 'com.gameloft9.demo.service.beans.system.PageRange'.(¬Ç¼á8¸õ©ç”-
-usquid:S00117T"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒÕÓâıÿÿÿÿ8‰ûñŞ”-
-[squid:UselessImportCheck"+Remove this unused import 'java.util.UUID'.(ÀãÄ£úÿÿÿÿ8šÏĞí”-
 hsquid:UselessImportCheck
 "8Remove this unused import 'org.apache.ibatis.jdbc.Null'.(›ÂÔ‹ùÿÿÿÿ8¯µÉí”-
+psquid:S00117="QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ê·ƒ²8ÁÁÄí”-
+[squid:UselessImportCheck"+Remove this unused import 'java.util.UUID'.(ÀãÄ£úÿÿÿÿ8šÏĞí”-
+gsquid:S4488B"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(ï˜¦8ÚÄÂÊ”-
+psquid:S00117="QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ê·ƒ²8ÁÁÄí”-
+usquid:S00117T"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒÕÓâıÿÿÿÿ8‰ûñŞ”-
+hsquid:S4488R"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(”²†¸8ìúµİ”-
 usquid:S00117T"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒÕÓâıÿÿÿÿ8‰ûñŞ”-
 Psquid:S1135E"2Complete the task associated to this TODO comment.(…ïœ†8ó§ÆÊ”-
 psquid:S00117="QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ê·ƒ²8ÁÁÄí”-
+hsquid:S4488;"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(Ú¿Ìã8ã¾¼Ê”-
+ysquid:UselessImportCheck"NRemove this unused import 'com.gameloft9.demo.service.beans.system.PageRange'.(¬Ç¼á8¸õ©ç”-

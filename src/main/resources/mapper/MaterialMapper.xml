@@ -30,9 +30,9 @@
 
     <!--增加-->
     <insert id="insert" >
-        INSERT INTO t_material (ID,GOODS_NAME,GOODS_TYPE,GOODS_DESCRIBE) VALUES {
-        #{Id},#{GoodsName},#{GoodsType},#{GoodsDescribe}
-        }
+        INSERT INTO t_material (ID,GOODS_NAME,GOODS_TYPE,GOODS_DESCRIBE) VALUES (
+        #{Id},#{GoodsName},#{GoodsType},#{GoodsDescribe})
+
     </insert>
 
     <!--修改-->

@@ -11,9 +11,9 @@ public interface MaterialService {
     /*按照主键查询*/
     Material selectByPrimaryKey(String Id);
     /*增加*/
-    int insert(Material material);
+    String insert(String GoodsName,String GoodsType, String GoodsDescribe);
     /*修改*/
-    int update(Material material);
+    boolean update(String Id,String GoodsName,String GoodsType,String GoodsDescribe);
     /*删除*/
     boolean delete(String Id);
     /*行数统计*/

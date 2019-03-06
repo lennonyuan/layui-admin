@@ -3,7 +3,7 @@ layui.config({
 }).extend({
     ajaxExtention: 'ajaxExtention',//加载自定义扩展，每个业务js都需要加载这个ajax扩展
     $tool: 'tool',
-    $api:'api'
+        $api:'api'
 }).use(['form', 'layer', 'tree','$api', 'jquery', 'ajaxExtention', '$tool'], function () {
     var form = layui.form,
         layer = parent.layer === undefined ? layui.layer : parent.layer,
@@ -19,14 +19,14 @@ layui.config({
     /**
      * 页面初始化
      * */
-    function init() {
-        //初始化机构树
-        initOrgTree();
-        //加载角色列表
-        loadRoleList();
-    }
-
-    init();
+    // function init() {
+    //     //初始化机构树
+    //     initOrgTree();
+    //     //加载角色列表
+    //     loadRoleList();
+    // }
+    //
+    // init();
 
     /**
      * 初始化组织机构树
@@ -91,9 +91,10 @@ layui.config({
      * */
     form.on("submit(addMaterial)", function (data) {
         var GoodsName = data.field.GoodsName;
+        console.log(GoodsName)
         var GoodsType = data.field.GoodsType;
         var GoodsDescribe = data.field.GoodsDescribe;
-     /*   var idList = new Array();*/
+        // var idList = new Array();
 
         /*if($tool.isBlank(orgId)||$tool.isBlank(orgName)){
             layer.msg("请选择所属组织机构");
@@ -111,11 +112,12 @@ layui.config({
         var req = {
             GoodsName: GoodsName,
             GoodsType: GoodsType,
-            GoodsDescribe: GoodsDescribe,
+            GoodsDescribe: GoodsDescribe
 
         };
-
-        $api.AddMaterial(JSON.stringify(req),{contentType:"application/json;charset=UTF-8"},function (data) {
+        console.log(req)
+        console.log(JSON.stringify(req))
+        $api.AddMaterial(req,function (data) {
             //top.layer.close(index);(关闭遮罩已经放在了ajaxExtention里面了)
             layer.msg("材料添加成功！", {time: 1000}, function () {
                 layer.closeAll("iframe");

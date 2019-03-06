@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  *t_material表的控制层实现
  */
 import java.util.List;
-import java.util.UUID;
+
 
 @Controller
 @RequestMapping("/material")
@@ -41,11 +41,11 @@ public class MaterialController {
     }
 
     /*按照id查询*/
-    @RequestMapping("/list/{id}")
+    @RequestMapping("/get")
     @ResponseBody
-    public String listById(@PathVariable String id){
+    public IResult listById(String id){
         Material material = materialServiceImpl.selectByPrimaryKey(id);
-        return new ResultBean(material).toString();
+        return new ResultBean(material);
     }
 
     /*删除*/
@@ -59,20 +59,17 @@ public class MaterialController {
     @RequestMapping(value = "/add",method = RequestMethod.POST)
     @ResponseBody
     public IResult add(String GoodsName,String GoodsType,String GoodsDescribe){
-        return new ResultBean<Integer>(materialServiceImpl.update(new Material(UUIDUtil.getUUID(),GoodsName,GoodsType,GoodsDescribe)));
+        return new ResultBean<String>(materialServiceImpl.insert(GoodsName,GoodsType,GoodsDescribe));
     }
     /*修改*/
 
     @RequestMapping(value = "/update",method = RequestMethod.POST)
     @ResponseBody
-    public String update(Material material){
-        //TODO
-        int i = materialServiceImpl.update(material);
-        if(i>0){
-            return  new ResultBean("200","成功").toString();
-        }else{
-            return  new ResultBean("500","失败").toString();
-        }
+    public IResult update(String Id,String GoodsName,String GoodsType,String GoodsDescribe){
+
+        boolean flag = materialServiceImpl.update(Id,GoodsName, GoodsType, GoodsDescribe);
+
+        return new ResultBean<Boolean>(flag);
     }
     /**
      * 获取所有材料列表

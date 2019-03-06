@@ -1,8 +1,8 @@
 
-lsquid:S00116"MRename this field "Id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›ÖÒß8¯ñÂ”-
 qsquid:S00116
 "RRename this field "GoodsId" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§ÔÒÍ8¯ñÂ”-
-xsquid:S00116"TRename this field "AuditUser" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾ÏÍÃşÿÿÿÿ8üÈÂ”-
-ssquid:S00116	"ORename this field "Type" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿà¢ªüÿÿÿÿ8¯ñÂ”-
-qsquid:S00116"RRename this field "CheckId" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬Œ€ê8¯ñÂ”-
+lsquid:S00116"MRename this field "Id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›ÖÒß8¯ñÂ”-
 usquid:S00116"VRename this field "GoodsNumber" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÜÔØ¶8¯ñÂ”-
+xsquid:S00116"TRename this field "AuditUser" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾ÏÍÃşÿÿÿÿ8üÈÂ”-
+qsquid:S00116"RRename this field "CheckId" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬Œ€ê8¯ñÂ”-
+ssquid:S00116	"ORename this field "Type" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿà¢ªüÿÿÿÿ8¯ñÂ”-

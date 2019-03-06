@@ -135,3 +135,11 @@ l
 <src/main/webapp/layuicms/page/system/Material/allMaterial.js,7\e\7e0609ee81c6cc76681060fd54b147025da7d051
 Y
 )src/main/webapp/layuicms/common/js/api.js,1\8\183063e85cfe097f3c293ae1fa23388bd5588a72
+
+].idea/dataSources/57f2147d-c1e1-47a7-bc8b-d04988a5370a/storage_v2/_src_/schema/cs.cAwAAA.meta,3\d\3dfa98bde4ccd503044a74a6ac299c1882013f7e
+j
+:.idea/dataSources/57f2147d-c1e1-47a7-bc8b-d04988a5370a.xml,c\f\cf21c934a33433cb13e7bc723f3c251c54fa4683
+\
+,src/main/resources/mapper/MaterialMapper.xml,9\2\92dfbf1d8a1c67c93612507f4a3b6d5a276d3af9
+_
+/src/main/resources/mapper/SysRoleTestMapper.xml,a\1\a1e3828048dedcf7d38f542eef67e1f80cdde577

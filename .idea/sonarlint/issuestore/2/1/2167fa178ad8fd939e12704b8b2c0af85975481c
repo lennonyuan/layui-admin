@@ -1,6 +1,6 @@
 
-{squid:S00116	"WRename this field "SupplierName" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢Åúåýÿÿÿÿ8Å‘ÛÁ”-
+lsquid:S00116"MRename this field "Id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›ÖÒß8Å‘ÛÁ”-
 ysquid:S00116
 "[Rename this field "SupplierDescribe" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(á¢·p8Å‘ÛÁ”-
+{squid:S00116	"WRename this field "SupplierName" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢Åúåýÿÿÿÿ8Å‘ÛÁ”-
 tsquid:S00116"PRename this field "Phone" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹¹È§üÿÿÿÿ8˜ÕÝÁ”-
-lsquid:S00116"MRename this field "Id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›ÖÒß8Å‘ÛÁ”-

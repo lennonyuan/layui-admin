@@ -4,6 +4,7 @@ import com.gameloft9.demo.dataaccess.dao.system.MaterialMapper;
 import com.gameloft9.demo.dataaccess.model.system.Material;
 import com.gameloft9.demo.service.api.system.MaterialService;
 import com.gameloft9.demo.service.beans.system.PageRange;
+import com.gameloft9.demo.utils.UUIDUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,13 +34,25 @@ public class MaterialServiceImpl implements MaterialService {
     }
 
     @Override
-    public int insert(Material material) {
-        return materialMapper.insert(material);
+    public String insert(String GoodsName,String GoodsType, String GoodsDescribe) {
+        Material material = new Material();
+        material.setId(UUIDUtil.getUUID());
+        material.setGoodsName(GoodsName);
+        material.setGoodsType(GoodsType);
+        material.setGoodsDescribe(GoodsDescribe);
+        materialMapper.insert(material);
+        return material.getId();
     }
 
     @Override
-    public int update(Material material) {
-        return materialMapper.update(material);
+    public boolean update(String Id,String GoodsName,String GoodsType,String GoodsDescribe) {
+        Material material = new Material();
+        material.setId(Id);
+        material.setGoodsName(GoodsName);
+        material.setGoodsType(GoodsType);
+        material.setGoodsDescribe(GoodsDescribe);
+        materialMapper.update(material);
+        return true;
     }
 
     @Override

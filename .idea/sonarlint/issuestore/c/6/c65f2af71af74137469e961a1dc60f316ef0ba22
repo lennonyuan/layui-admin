@@ -1,29 +1,29 @@
 
-}squid:S00116"YRename this field "OrderAuditUser" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(©šÔıÿÿÿÿ8òÎÏÂ”-
-Isquid:S1068"+Remove this unused "GoodsId" private field.(§ÔÒÍ8òÎÏÂ”-
-Ssquid:S1068"0Remove this unused "PayAduitUser" private field.(êÔ¾İüÿÿÿÿ8òÎÏÂ”-
-qsquid:S00116"RRename this field "GoodsId" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§ÔÒÍ8òÎÏÂ”-
-Osquid:S1068"1Remove this unused "ApplyDescribe" private field.(Ï¾ãĞ8òÎÏÂ”-
-Dsquid:S1068"&Remove this unused "Id" private field.(›ÖÒß8òÎÏÂ”-
-Msquid:S1068	"/Remove this unused "GoodsNumber" private field.(ÜÔØ¶8òÎÏÂ”-
-}squid:S00116"YRename this field "OrderAuditTime" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àóâùÿÿÿÿ8òÎÏÂ”-
-Jsquid:S1068
-"-Remove this unused "ApplyUser" private field.(¡ªœ8òÎÏÂ”-
-Psquid:S1068"-Remove this unused "ApplyTime" private field.(„¹ğ³ùÿÿÿÿ8òÎÏÂ”-
-Hsquid:S1068"*Remove this unused "Number" private field.(¬î‡•8òÎÏÂ”-
-{squid:S00116"WRename this field "PayAduitUser" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êÔ¾İüÿÿÿÿ8òÎÏÂ”-
-Rsquid:S1068"4Remove this unused "DatePayAuditTime" private field.(â¼‘ü8òÎÏÂ”-
-tsquid:S00116"PRename this field "State" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õ¾ñàúÿÿÿÿ8òÎÏÂ”-
-xsquid:S00116"TRename this field "ApplyTime" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„¹ğ³ùÿÿÿÿ8òÎÏÂ”-
-Osquid:S1068"1Remove this unused "AuditDescribe" private field.(Íƒ¦ú8òÎÏÂ”-
-usquid:S00116	"VRename this field "GoodsNumber" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÜÔØ¶8òÎÏÂ”-
-Usquid:S1068"2Remove this unused "OrderAuditUser" private field.(©šÔıÿÿÿÿ8òÎÏÂ”-
-lsquid:S00116"MRename this field "Id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›ÖÒß8òÎÏÂ”-
 wsquid:S00116"XRename this field "ApplyDescribe" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ï¾ãĞ8òÎÏÂ”-
-Lsquid:S1068")Remove this unused "State" private field.(Õ¾ñàúÿÿÿÿ8òÎÏÂ”-
+psquid:S00116"QRename this field "Number" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬î‡•8òÎÏÂ”-
+qsquid:S00116"RRename this field "GoodsId" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§ÔÒÍ8òÎÏÂ”-
 zsquid:S00116"[Rename this field "DatePayAuditTime" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(â¼‘ü8òÎÏÂ”-
+Osquid:S1068"1Remove this unused "AuditDescribe" private field.(Íƒ¦ú8òÎÏÂ”-
+Ssquid:S1068"0Remove this unused "PayAduitUser" private field.(êÔ¾İüÿÿÿÿ8òÎÏÂ”-
+Lsquid:S1068")Remove this unused "State" private field.(Õ¾ñàúÿÿÿÿ8òÎÏÂ”-
+}squid:S00116"YRename this field "OrderAuditTime" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àóâùÿÿÿÿ8òÎÏÂ”-
+usquid:S00116	"VRename this field "GoodsNumber" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÜÔØ¶8òÎÏÂ”-
+{squid:S00116"WRename this field "PayAduitUser" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êÔ¾İüÿÿÿÿ8òÎÏÂ”-
 Usquid:S1068"2Remove this unused "OrderAuditTime" private field.(àóâùÿÿÿÿ8òÎÏÂ”-
+Psquid:S1068"-Remove this unused "ApplyTime" private field.(„¹ğ³ùÿÿÿÿ8òÎÏÂ”-
+tsquid:S00116"PRename this field "State" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õ¾ñàúÿÿÿÿ8òÎÏÂ”-
+Usquid:S1068"2Remove this unused "OrderAuditUser" private field.(©šÔıÿÿÿÿ8òÎÏÂ”-
 rsquid:S00116
 "TRename this field "ApplyUser" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡ªœ8òÎÏÂ”-
-psquid:S00116"QRename this field "Number" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬î‡•8òÎÏÂ”-
+Isquid:S1068"+Remove this unused "GoodsId" private field.(§ÔÒÍ8òÎÏÂ”-
+Osquid:S1068"1Remove this unused "ApplyDescribe" private field.(Ï¾ãĞ8òÎÏÂ”-
+Hsquid:S1068"*Remove this unused "Number" private field.(¬î‡•8òÎÏÂ”-
+Msquid:S1068	"/Remove this unused "GoodsNumber" private field.(ÜÔØ¶8òÎÏÂ”-
+Rsquid:S1068"4Remove this unused "DatePayAuditTime" private field.(â¼‘ü8òÎÏÂ”-
+Dsquid:S1068"&Remove this unused "Id" private field.(›ÖÒß8òÎÏÂ”-
+lsquid:S00116"MRename this field "Id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›ÖÒß8òÎÏÂ”-
 wsquid:S00116"XRename this field "AuditDescribe" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Íƒ¦ú8òÎÏÂ”-
+Jsquid:S1068
+"-Remove this unused "ApplyUser" private field.(¡ªœ8òÎÏÂ”-
+}squid:S00116"YRename this field "OrderAuditUser" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(©šÔıÿÿÿÿ8òÎÏÂ”-
+xsquid:S00116"TRename this field "ApplyTime" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„¹ğ³ùÿÿÿÿ8òÎÏÂ”-
