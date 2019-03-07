@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.gameloft9.demo.dataaccess.dao.system.MaterialGoodsMapper">
+    <resultMap id="MaterialGoodsResult" type="com.gameloft9.demo.dataaccess.model.system.MaterialGoods">
+         <id column="ID" property="Id" jdbcType="VARCHAR"/>
+         <result column="SUPPLIER_ID" property="SupplierId" jdbcType="VARCHAR"/>
+         <result column="Material_ID" property="MaterialId" />
+         <result column="GOODS_PRICE" property="GoodsPrice" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--通过主键查询-->
+
+    <sql id="Base_Column_List">
+    ID,SUPPLIER_ID,MATERIAL_ID,GOODS_PRICE
+    </sql>
+    <select id="selectByPrimaryKey" resultMap="MaterialGoodsResult">
+        select
+        <include refid="Base_Column_List"/>
+        from t_material_goods
+        where ID = #{Id,jdbcType=VARCHAR}
+    </select>
+
+    <!--查询所有-->
+    <select id="selectByAll" resultMap="MaterialGoodsResult">
+        select
+         ID,SUPPLIER_ID,MATERIAL_ID,GOODS_PRICE
+        from t_material_goods
+    </select>
+
+    <!--增加-->
+    <insert id="insert" >
+        INSERT INTO t_material_goods (ID,SUPPLIER_ID,MATERIAL_ID,GOODS_PRICE) VALUES (
+        #{Id},#{SupplierId},#{MaterialId},#{GoodsPrice})
+
+    </insert>
+
+    <!--修改-->
+        <update id="update" >
+            UPDATE t_material_goods SET SUPPLIER_ID=#{SupplierId},MATERIAL_ID=#{MaterialId},
+            GOODS_PRICE=#{GoodsPrice} where ID=#{Id}
+        </update>
+    <!--删除-->
+    <delete id="delete" parameterType="java.lang.String">
+
+        DELETE FROM t_material_goods WHERE ID=#{Id}
+    </delete>
+    
+    <select id="dataCount" resultType="java.lang.Integer">
+        SELECT count(1) FROM t_material_goods
+    </select>
+
+    <select id="selectAll" resultMap="MaterialGoodsResult">
+        select * from t_material_goods t
+       <where>
+        <if test="SupplierId != null and SupplierId != ''">
+            and t.SUPPLIER_ID = #{SupplierId,jdbcType=VARCHAR}
+        </if>
+        <if test="MaterialId != null and MaterialId != ''">
+            and t.MATERIAL_ID = #{MaterialId,jdbcType=VARCHAR}
+        </if>
+       </where>
+        order by t.ID asc
+        limit #{start,jdbcType=DECIMAL},#{end,jdbcType=DECIMAL}
+    </select>
+</mapper>

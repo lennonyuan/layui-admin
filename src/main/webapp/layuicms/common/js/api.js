@@ -158,6 +158,18 @@ layui.define(['$tool','jquery'], function (exports) {
         UpdateMaterial:function(req,successCallback,errorCallback){
             doPost($tool.getContext()+'/material/update',req,successCallback,errorCallback);
         },
+        DeleteSupplier: function (req, config, successCallback, errorCallback) {
+            doPost($tool.getContext() + '/supplier/delete', req, config, successCallback, errorCallback);
+        },
+        AddSupplier:function(req,successCallback,errorCallback){
+            doPost($tool.getContext() + '/supplier/add',req,successCallback,errorCallback);
+        },
+        UpdateSupplier:function(req,successCallback,errorCallback){
+            doPost($tool.getContext()+'/supplier/update',req,successCallback,errorCallback);
+        },
+        GetSupplier:function(req,successCallback,errorCallback){
+            doPost($tool.getContext()+'/supplier/list',req,successCallback,errorCallback);
+        },
     };
 
 

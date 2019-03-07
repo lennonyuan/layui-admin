@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.gameloft9.demo.dataaccess.dao.system.SupplierMapper">
+    <resultMap id="SupplierResult" type="com.gameloft9.demo.dataaccess.model.system.Supplier">
+        <id column="ID" property="Id" jdbcType="VARCHAR"/>
+        <result column="SUPPLIER_NAME" property="SupplierName" jdbcType="VARCHAR"/>
+        <result column="SUPPLIER_DESCRIBE" property="SupplierDescribe" />
+        <result column="PHONE" property="Phone" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--通过主键查询-->
+
+    <sql id="Base_Column_List">
+    ID,SUPPLIER_NAME,SUPPLIER_DESCRIBE,PHONE
+    </sql>
+    <select id="selectSupplierByPrimaryKey" resultMap="SupplierResult">
+        select
+        <include refid="Base_Column_List"/>
+        from t_supplier
+        where ID = #{id,jdbcType=VARCHAR}
+    </select>
+
+    <!--查询所有-->
+<!--    <select id="selectByAll" resultMap="SupplierResult">
+        select
+         ID,GOODS_NAME,GOODS_TYPE,GOODS_DESCRIBE
+        from t_material
+    </select>-->
+
+    <!--增加-->
+    <insert id="insertSupplier" >
+        INSERT INTO t_supplier (ID,SUPPLIER_NAME,SUPPLIER_DESCRIBE,PHONE) VALUES (
+        #{Id},#{SupplierName},#{SupplierDescribe},#{Phone})
+
+    </insert>
+
+    <!--修改-->
+    <update id="updateSupplier" >
+            UPDATE t_supplier SET SUPPLIER_NAME=#{SupplierName},SUPPLIER_DESCRIBE=#{SupplierDescribe},
+            PHONE=#{Phone} where ID=#{Id}
+        </update>
+    <!--删除-->
+    <delete id="deleteSupplierById" parameterType="java.lang.String">
+
+        DELETE FROM t_supplier WHERE ID=#{Id}
+    </delete>
+
+    <select id="dataCount" resultType="java.lang.Integer">
+        SELECT count(1) FROM t_supplier
+    </select>
+
+    <select id="selectAllSupplier" resultMap="SupplierResult">
+        select * from t_supplier t
+        <where>
+            <if test="SupplierName != null and SupplierName != ''">
+                and t.SUPPLIER_NAME = #{SupplierName,jdbcType=VARCHAR}
+            </if>
+            <if test="SupplierDescribe != null and SupplierDescribe != ''">
+                and t.SUPPLIER_DESCRIBE = #{SupplierDescribe,jdbcType=VARCHAR}
+            </if>
+            <if test="Phone != null and Phone != ''">
+            and t.PHONE = #{Phone,jdbcType=VARCHAR}
+            </if>
+        </where>
+        order by t.ID asc
+        limit #{start,jdbcType=DECIMAL},#{end,jdbcType=DECIMAL}
+    </select>
+</mapper>

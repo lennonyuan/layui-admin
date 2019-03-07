@@ -6,7 +6,17 @@ import lombok.Data;
 public class MaterialGoods {
 
     private String Id;
-    private String SuplierId;
+    private String SupplierId;
     private String MaterialId;
-    private String GoodPrice;
+    private String GoodsPrice;
+
+    public MaterialGoods(String id, String supplierId, String materialId, String goodsPrice) {
+        Id = id;
+        SupplierId = supplierId;
+        MaterialId = materialId;
+        GoodsPrice = goodsPrice;
+    }
+
+    public MaterialGoods() {
+    }
 }
