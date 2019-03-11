@@ -1,12 +1,12 @@
 
+Vjavascript:S1854
+":Remove this useless assignment to local variable "laypage"(ĞÏ¦
+Yjavascript:UnusedVariable#"4Remove the declaration of the unused 'url' variable.(–Ö‹
+gjavascript:UnusedVariable";Remove the declaration of the unused 'roleIdList' variable.(˜ØùÄ8Ø§©•-
+njavascript:UnusedVariable"=Remove the declaration of the unused 'menu_roleIds' variable.(Ò¾Š¼üÿÿÿÿ8…¥•-
+`javascript:S1854"=Remove this useless assignment to local variable "roleIdList"(˜ØùÄ8Ø§©•-
+Rjavascript:S1854#"6Remove this useless assignment to local variable "url"(–Ö‹
 Wjavascript:S1854i"6Remove this useless assignment to local variable "url"(¥‡ò€ıÿÿÿÿ
 ]javascript:UnusedVariable
 "8Remove the declaration of the unused 'laypage' variable.(ĞÏ¦
-Vjavascript:S1854
-":Remove this useless assignment to local variable "laypage"(ĞÏ¦
-gjavascript:UnusedVariable";Remove the declaration of the unused 'roleIdList' variable.(˜ØùÄ8Ø§©•-
 ^javascript:UnusedVariablei"4Remove the declaration of the unused 'url' variable.(¥‡ò€ıÿÿÿÿ
-njavascript:UnusedVariable"=Remove the declaration of the unused 'menu_roleIds' variable.(Ò¾Š¼üÿÿÿÿ8…¥•-
-Yjavascript:UnusedVariable#"4Remove the declaration of the unused 'url' variable.(–Ö‹
-Rjavascript:S1854#"6Remove this useless assignment to local variable "url"(–Ö‹
-`javascript:S1854"=Remove this useless assignment to local variable "roleIdList"(˜ØùÄ8Ø§©•-

@@ -63,4 +63,10 @@ public class SupplierController {
         String supplier1 = service.insertSupplier(supplier/*supplier.getSupplierName(), supplier.getSupplierDescribe(), supplier.getPhone()*/);
         return  new ResultBean<String>(supplier1);
     }
+
+    @RequestMapping("/getAll")
+    @ResponseBody
+    public IResult getAll(){
+        return  new ResultBean<>(service.selectAll());
+    }
 }

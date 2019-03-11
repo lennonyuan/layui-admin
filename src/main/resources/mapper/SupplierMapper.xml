@@ -14,6 +14,14 @@
     <sql id="Base_Column_List">
     ID,SUPPLIER_NAME,SUPPLIER_DESCRIBE,PHONE
     </sql>
+
+    <select id="selectByAll" resultMap="SupplierResult">
+        select
+        <include refid="Base_Column_List"/>
+        from t_supplier
+
+
+    </select>
     <select id="selectSupplierByPrimaryKey" resultMap="SupplierResult">
         select
         <include refid="Base_Column_List"/>

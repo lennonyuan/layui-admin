@@ -170,6 +170,36 @@ layui.define(['$tool','jquery'], function (exports) {
         GetSupplier:function(req,successCallback,errorCallback){
             doPost($tool.getContext()+'/supplier/list',req,successCallback,errorCallback);
         },
+        GetIdMenu:function(req,successCallback,errorCallback){
+            doPost($tool.getContext() + '/materialgoods/getMenuId',req,successCallback,errorCallback);
+        },
+        GetMaterialall:function(req,successCallback,errorCallback){
+            doPost($tool.getContext()+'/material/list',req,successCallback,errorCallback);
+        },
+        /*materialGoodsBean的删除*/
+        DeletematerialGoodsBean:function(req,successCallback,errorCallback){
+            doPost($tool.getContext() + '/materialgoods/delete',req,successCallback,errorCallback);
+        },
+        GetSupplierall:function(req,successCallback,errorCallback){
+            doPost($tool.getContext()+'/supplier/getAll',req,successCallback,errorCallback);
+        },
+        addMaterialGoods:function(req,successCallback,errorCallback){
+            doPost($tool.getContext() + '/materialgoods/add',req,successCallback,errorCallback);
+        },
+        GetmaterialGoodsId:function(req,successCallback,errorCallback){
+            doPost($tool.getContext() + '/materialgoods/get',req,successCallback,errorCallback);
+        },
+        updateMaterialGoods:function(req,successCallback,errorCallback){
+            doPost($tool.getContext() + '/materialgoods/update',req,successCallback,errorCallback);
+        },
+        GetmaterialGoods:function(req,successCallback,errorCallback){
+            doPost($tool.getContext() + '/materialgoods/pagelist',req,successCallback,errorCallback);
+        },
+
+
+        /**/
+
+
     };
 
 

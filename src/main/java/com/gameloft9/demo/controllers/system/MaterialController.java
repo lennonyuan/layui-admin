@@ -35,9 +35,9 @@ public class MaterialController {
     /*查询所有Material表*/
     @RequestMapping("/list")
     @ResponseBody
-    public String listAll(){
+    public IResult listAll(){
         List<Material> materials = materialServiceImpl.selectByAll();
-        return  new ResultBean<List>(materials).toString();
+        return  new ResultBean<List>(materials);
     }
 
     /*按照id查询*/

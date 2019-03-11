@@ -23,6 +23,7 @@ layui.config({
         //初始化下拉框
         $api.GetFirstClassMenus(null,function (res) {
             var data = res.data;
+
             if(data.length > 0){
                 var html = '<option value="">--请选择--</option>';
                 for(var i=0;i<data.length;i++){

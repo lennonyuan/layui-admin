@@ -20,4 +20,6 @@ public interface SupplierService {
     int dataCount();
 
     List<Supplier> selectAllSupplier(String page, String limit,String SupplierName ,String GoodsDescribe, String Phone);
+
+    List<Supplier> selectAll();
 }

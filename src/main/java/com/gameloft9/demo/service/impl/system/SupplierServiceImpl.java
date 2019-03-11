@@ -73,4 +73,9 @@ public class SupplierServiceImpl implements SupplierService {
                 SupplierName, SupplierDescribe, Phone);
         return suppliers;
     }
+
+    @Override
+    public List<Supplier> selectAll() {
+        return supplierMapper.selectByAll();
+    }
 }

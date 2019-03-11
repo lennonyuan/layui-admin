@@ -18,7 +18,7 @@ public interface MaterialMapper {
     /*查询所有*/
     List<Material> selectByAll();
     /*按照主键查询*/
-    Material selectByPrimaryKey(String Id);
+    Material selectByPrimaryKey(String id);
     /*增加*/
     int insert(Material material);
     /*修改*/

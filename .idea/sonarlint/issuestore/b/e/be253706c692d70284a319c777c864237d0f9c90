@@ -1,0 +1,8 @@
+
+hsquid:S4488"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(”²†¸8ÉáÔ·•-
+gsquid:S4488("JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(ï˜¦8‹Æä¹•-
+Œsquid:UselessImportCheck"\Remove this unused import 'com.gameloft9.demo.dataaccess.model.system.MaterialSupplierBean'.(¶÷’ˆüÿÿÿÿ8Ü»Ð¿–-
+msquid:S44886"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(ÏàÛ€ùÿÿÿÿ8ÚÌ‚º•-
+msquid:S4488<"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(¸Œ»ÿþÿÿÿÿ8³ú·¿–-
+|squid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Âº„Ãùÿÿÿÿ8Æµ¯¿–-
+isquid:CommentedOutCodeLine""<This block of commented-out lines of code should be removed.(”€‰8Æµ¯¿–-

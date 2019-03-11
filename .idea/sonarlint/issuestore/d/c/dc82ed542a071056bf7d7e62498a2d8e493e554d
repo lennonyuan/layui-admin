@@ -1,0 +1,7 @@
+
+isquid:CommentedOutCodeLine7"<This block of commented-out lines of code should be removed.(²‡Ó8ëÅÀ¾–-
+‚squid:UselessImportCheck"RRemove this unused import 'org.springframework.web.context.ContextLoaderListener'.(øªï–þÿÿÿÿ8ëÅÀ¾–-
+dsquid:S1126E"AReplace this if-then-else statement by a single return statement.(©îÑúÿÿÿÿ8áã±·•-
+dsquid:S1126O"AReplace this if-then-else statement by a single return statement.(©îÑúÿÿÿÿ8’Œ´·•-
+asquid:UselessImportCheck"1Remove this unused import 'java.util.Collection'.(¹ÉÐšùÿÿÿÿ8ëÅÀ¾–-
+bsquid:UselessImportCheck"2Remove this unused import 'java.util.Collections'.(¢³ïÓþÿÿÿÿ8ëÅÀ¾–-

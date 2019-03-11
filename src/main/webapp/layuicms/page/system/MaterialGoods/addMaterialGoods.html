@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>材料添加</title>
+    <title>添加供应需求单</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -28,41 +28,53 @@
 <body class="childrenBody">
 <form class="layui-form" style="width:80%;">
     <!--<div class="layui-form-item">
-        <label class="layui-form-label">所属机构</label>
+        <label class="layui-form-label">菜单类型</label>
         <div class="layui-input-block">
-            &lt;!&ndash;机构树&ndash;&gt;
-            <div class="org-tree">
-                <ul id="org-tree" class="layui-box layui-tree"></ul>
-            </div>
+            <input type="radio" name="menuType" value="1" title="一级菜单" lay-filter="menuTypeFilter" checked>
+            <input type="radio" name="menuType" value="2" title="二级菜单" lay-filter="menuTypeFilter" >
         </div>
     </div>-->
-    <div class="layui-form-item parent-menu">
-        <label class="layui-form-label">材料名称</label>
+
+
+    <div class="layui-form-item >
+        <label class="layui-form-label">原料ID</label>
         <div class="layui-input-block">
-            <input type="text" class="layui-input" lay-verify="required" name="GoodsName" placeholder="请输入材料名称">
+            <select id="materialId" name="materialId"></select>
+        </div>
+    </div>
+    <div class="layui-form-item >
+        <label class="layui-form-label">供应商ID</label>
+        <div class="layui-input-block">
+            <select id="supplierId" name="supplierId"></select>
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label">材料类型</label>
+        <label class="layui-form-label">货品价格</label>
         <div class="layui-input-block">
-            <input type="text" class="layui-input" lay-verify="number" name="GoodsType" placeholder="请输入材料类型">
+            <input type="text" class="layui-input" name="goodsPrice" lay-verify="number" placeholder="请输入货品价格">
+        </div>
+    </div>
+    <!--<div class="layui-form-item">
+        <label class="layui-form-label">访问链接</label>
+        <div class="layui-input-block">
+            <input type="text" class="layui-input" name="menuUrl" lay-verify="required" placeholder="请输入访问链接">
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label">材料描述</label>
+        <label class="layui-form-label">后台请求路径</label>
         <div class="layui-input-block">
-            <input type="text" class="layui-input"  name="GoodsDescribe"  placeholder="请输入材料描述">
+            <input type="text" class="layui-input" name="requestUrl" lay-verify="required" placeholder="请输入后台请求路径">
         </div>
     </div>
-  <!--  <div class="layui-form-item">
-        <label class="layui-form-label">权限配置</label>
-        <div class="layui-input-block role-check-list">
-            &lt;!&ndash;动态生成角色列表&ndash;&gt;
+    <div class="layui-form-item">
+        <label class="layui-form-label">排序号</label>
+        <div class="layui-input-block">
+            <input type="text" class="layui-input" name="sort" lay-verify="required|number" placeholder="排序号">
         </div>
     </div>-->
     <div class="layui-form-item">
         <div class="layui-input-block">
-            <button class="layui-btn" lay-submit="" lay-filter="addMaterial">立即提交</button>
+            <button class="layui-btn" lay-submit="" lay-filter="addMenu">立即提交</button>
             <button type="reset" class="layui-btn layui-btn-primary">重置</button>
         </div>
     </div>
@@ -71,6 +83,6 @@
 <!--一般情况下，一个业务页面引入一个layui.js,config.js和业务js这三个js就够了-->
 <script type="text/javascript" src="../../../lib/layui/layui.js"></script>
 <script type="text/javascript" src="../../../common/js/config.js"></script>
-<script type="text/javascript" src="addMaterial.js"></script>
+<script type="text/javascript" src="addMaterialGoods.js"></script>
 </body>
 </html>
