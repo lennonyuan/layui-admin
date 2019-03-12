@@ -4,13 +4,15 @@ layui.config({
     ajaxExtention:'ajaxExtention',//加载自定义扩展，每个业务js都需要加载这个ajax扩展
     $tool:'tool',
     $api:'api'
-}).use(['form', 'layer', 'jquery','ajaxExtention','$tool','$api'], function () {
+}).use(['form', 'layer', 'jquery','ajaxExtention','$tool','$api','laydate'], function () {
     var form = layui.form,
         layer = parent.layer === undefined ? layui.layer : parent.layer,
         laypage = layui.laypage,
         $ = layui.jquery,
         $tool = layui.$tool,
+        laydate = layui.laydate,
         $api = layui.$api;
+
 
 
     var roleIdList = new Array();//所有的角色id列表
@@ -22,9 +24,54 @@ layui.config({
     function init() {
         //初始化菜单信息
         initMenuInfo();
+        initDate();
+        initDate2();
+        initDate3();
+        $("#state").val("已提交")
+        //初始化下拉框
+        $api.GetMaterialall(null,function (res) {
+            var data = res.data;
+            if (data.length > 0) {
+                var html = '<option value="">--请选择--</option>';
+                for (var i = 0; i < data.length; i++) {
+                    html += '<option value="' + data[i].id + '">' + data[i].id +'] ---------- ' +data[i].goodsName + '</option>>';
+                }
+                $('#goodsId').append($(html));
+                form.render();
+            }
+        });
     }
     init();
 
+
+
+    /**
+     * 初始化日期选择
+     * */
+    function initDate() {
+        laydate.render({
+            elem: '#payAuditTime'
+            , type: 'datetime'
+            , range: '&'
+            , format: 'yyyy-MM-dd HH:mm:ss'
+        });
+    }
+    function initDate2() {
+        laydate.render({
+            elem: '#applyTime'
+            , type: 'datetime'
+            , range: '&'
+            , format: 'yyyy-MM-dd HH:mm:ss'
+        });
+    }
+    function initDate3() {
+        laydate.render({
+            elem: '#orderAuditTime'
+            , type: 'datetime'
+            , range: '&'
+            , format: 'yyyy-MM-dd HH:mm:ss'
+        });
+    }
     /**
      * 初始化菜单信息
      * */

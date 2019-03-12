@@ -131,12 +131,12 @@ layui.config({
     //添加角色
     $(".usersAdd_btn").click(function () {
         var index = layui.layer.open({
-            title: "添加角色",
+            title: "添加采购订单",
             type: 2,
             content: "addPurchaseOrder.html",
             success: function (layero, index) {
                 setTimeout(function () {
-                    layui.layer.tips('点击此处返回角色列表', '.layui-layer-setwin .layui-layer-close', {
+                    layui.layer.tips('点击此处返回', '.layui-layer-setwin .layui-layer-close', {
                         tips: 3
                     });
                 }, 500)
@@ -173,7 +173,7 @@ layui.config({
     function editMatrial(id){
 
         var index = layui.layer.open({
-            title: "编辑角色",
+            title: "修改采购订单",
             type: 2,
             content: "editPurchaseOrder.html?Id="+id,
             success: function (layero, index) {

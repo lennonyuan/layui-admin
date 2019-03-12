@@ -28,14 +28,14 @@
 <body class="childrenBody">
 <form class="layui-form" style="width:80%;" name="editRoleForm">
     <div class="layui-form-item ">
-        <label class="layui-form-label">订单编号</label>
+        <label class="layui-form-label">订单编号*</label>
         <div class="layui-input-block layui-inline">
             <input type="text" class="layui-input" name="orderNumber" lay-verify="required" placeholder="请输入订单编号">
         </div>
     </div>
 
     <div class="layui-form-item  ">
-        <label class="layui-form-label">货品数量</label>
+        <label class="layui-form-label">货品数量*</label>
         <div class="layui-input-block layui-inline">
             <input type="text" class="layui-input" name="goodsNumber" lay-verify="number" placeholder="请输入货品数量(整数)">
         </div>
@@ -43,7 +43,7 @@
 
 
     <div class="layui-form-item ">
-        <label class="layui-form-label ">原料ID</label>
+        <label class="layui-form-label ">原料ID*</label>
          <div class="layui-input-block layui-inline">
               <select id="goodsId" name="goodsId"></select>
          </div>
@@ -51,30 +51,53 @@
 
 
 
+    <div class="layui-form-item">
+        <label class="layui-form-label">订单状态*</label>
+        <div class="layui-input-block layui-inline">
+            <select name="state" lay-verify="required">
+                <option value="">--请选择--</option>
+                <option value="未提交">1.未提交</option>
+                <option value="已提交">2.已提交</option>
+                <option value="未审核">3.未审核</option>
+                <option value="已审核">4.已审核</option>
+                <option value="未支付">5.未支付</option>
+                <option value="已支付">6.已支付</option>
+            </select>
+        </div>
+    </div>
+
 
     <div class="layui-form-item ">
-        <label class="layui-form-label">订单状态</label>
+        <label class="layui-form-label">申请时间*</label>
         <div class="layui-input-block layui-inline">
-            <select id="state" name="state"></select>
+            <input id="applyTime" type="text" class="layui-input" name="applyTime"  placeholder="请选择申请时间 (开始 到 结束)">
         </div>
     </div>
 
     <div class="layui-form-item  ">
-        <label class="layui-form-label">申请人</label>
+        <label class="layui-form-label">订单审核</label>
         <div class="layui-input-block layui-inline">
+            <input id="orderAuditTime" type="text" class="layui-input" name="orderAuditTime"  placeholder="请选择订单审核时间 (开始 到 结束)">
+        </div>
+    </div>
+
+    <div class="layui-form-item  ">
+        <label class="layui-form-label">支付审核</label>
+        <div class="layui-input-block layui-inline">
+            <input id="payAuditTime" type="text" class="layui-input" name="payAuditTime"  placeholder="请选择支付审核时间 (开始 到 结束)">
+        </div>
+    </div>
+
+
+    <div class="layui-form-item  layui-inline">
+        <label class="layui-form-label">申请人*</label>
+        <div class="layui-input-block ">
             <input type="text" class="layui-input" name="applyUser"  placeholder="请输入申请人">
         </div>
     </div>
 
 
-    <div class="layui-form-item ">
-        <label class="layui-form-label">申请时间</label>
-        <div class="layui-input-block layui-inline">
-            <input type="text" class="layui-input" name="applyTime"  placeholder="请输入申请时间">
-        </div>
-    </div>
-
-    <div class="layui-form-item  ">
+    <div class="layui-form-item layui-inline  ">
         <label class="layui-form-label">订单审核人</label>
         <div class="layui-input-block ">
             <input type="text" class="layui-input" name="orderAuditUser"  placeholder="请输入订单审核人">
@@ -85,27 +108,16 @@
 
 
 
-    <div class="layui-form-item ">
+    <div class="layui-form-item layui-inline">
         <label class="layui-form-label">支付审核人</label>
         <div class="layui-input-block">
             <input type="text" class="layui-input" name="payAuditUser"  placeholder="请输入支付审核人">
         </div>
     </div>
 
+    <br/>
 
-    <div class="layui-form-item  ">
-        <label class="layui-form-label">订单审核时间</label>
-        <div class="layui-input-block">
-            <input type="text" class="layui-input" name="orderAuditTime"  placeholder="请输入订单审核时间">
-        </div>
-    </div>
 
-    <div class="layui-form-item  ">
-        <label class="layui-form-label">支付审核时间</label>
-        <div class="layui-input-block">
-            <input type="text" class="layui-input" name="payAuditTime"  placeholder="请输入支付审核时间">
-        </div>
-    </div>
 
 
     <div class="layui-form-item layui-form-text">
