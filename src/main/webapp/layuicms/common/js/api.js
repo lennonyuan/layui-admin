@@ -195,6 +195,15 @@ layui.define(['$tool','jquery'], function (exports) {
         GetmaterialGoods:function(req,successCallback,errorCallback){
             doPost($tool.getContext() + '/materialgoods/pagelist',req,successCallback,errorCallback);
         },
+        purchaseOrderall:function(req,successCallback,errorCallback){
+            doPost($tool.getContext() + '/po/selectall',req,successCallback,errorCallback);
+        },
+        DeletePurchaseOrder: function (req, config, successCallback, errorCallback) {
+            doPost($tool.getContext() + '/po/delete', req, config, successCallback, errorCallback);
+        },
+        editPurchaseOrder: function (req, config, successCallback, errorCallback) {
+            doPost($tool.getContext() + '/po/update', req, config, successCallback, errorCallback);
+        },
 
 
         /**/

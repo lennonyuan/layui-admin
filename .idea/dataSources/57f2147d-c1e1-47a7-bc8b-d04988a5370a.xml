@@ -1767,7 +1767,7 @@ ROLE_ID</ColNames>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="387" parent="252" name="NUMBER">
+    <column id="387" parent="252" name="ORDER_NUMBER">
       <Position>2</Position>
       <Comment>订单编号</Comment>
       <DataType>varchar(255)|0s</DataType>

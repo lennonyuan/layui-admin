@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.gameloft9.demo.dataaccess.dao.system.PurchaseOrderMapper">
+    <resultMap id="PurchaseOrderResult" type="com.gameloft9.demo.dataaccess.model.system.PurchaseOrder">
+            <id column="ID" property="id"/>
+            <result column="ORDER_NUMBER" property="orderNumber" jdbcType="VARCHAR" />
+            <result column="GOODS_ID" property="goodsId" jdbcType="VARCHAR"/>
+            <result column="GOODS_NUMBER" property="goodsNumber" jdbcType="VARCHAR"/>
+            <result column="APPLY_USER" property="applyUser" jdbcType="VARCHAR"/>
+            <result column="APPLY_TIME" property="applyTime" jdbcType="DATE"/>
+            <result column="STATE" property="state" jdbcType="VARCHAR"/>
+            <result column="ORDER_AUDIT_USER" property="orderAuditUser" jdbcType="VARCHAR"/>
+            <result column="ORDER_AUDIT_TIME" property="orderAuditTime" jdbcType="DATE"/>
+            <result column="PAY_AUDIT_USER" property="payAuditUser" jdbcType="VARCHAR"/>
+            <result column="PAY_AUDIT_TIME" property="payAuditTime" jdbcType="DATE"/>
+            <result column="APPLY_DESCRIBE" property="applyDescribe" jdbcType="VARCHAR"/>
+            <result column="AUDIT_DESCRIBE" property="auditDescribe" jdbcType="VARCHAR"/>
+    </resultMap>
+<!--
+
+    =#{id},
+    =#{OrderNumber},
+    =#{goodsId},
+    =#{goodsNumber},
+    =#{applyUser},
+    =#{applyTime},
+    =#{state},
+    =#{orderAuditUser},
+    =#{orderAuditTime},
+    =#{payAuditUser},
+    =#{payAuditTime},
+    =#{applyDescribe},
+    =#{auditDescribe},
+-->
+
+    <!--通过主键查询-->
+
+    <sql id="Base_Column_List">
+    ID,ORDER_NUMBER,GOODS_ID,GOODS_NUMBER,APPLY_USER,APPLY_TIME,STATE,ORDER_AUDIT_USER,
+    ORDER_AUDIT_TIME,PAY_AUDIT_USER,PAY_AUDIT_TIME,APPLY_DESCRIBE,AUDIT_DESCRIBE
+    </sql>
+    <select id="selectByPrimaryKey" resultMap="PurchaseOrderResult">
+        select
+        <include refid="Base_Column_List"/>
+        from t_purchase_order
+        where ID = #{id,jdbcType=VARCHAR}
+    </select>
+
+    <!--查询所有-->
+    <select id="selectByAll" resultMap="PurchaseOrderResult">
+        select
+        <include refid="Base_Column_List"/>
+        from t_purchase_order
+    </select>
+
+    <!--增加-->
+    <insert id="insert" >
+        INSERT INTO t_purchase_order ( ID,ORDER_NUMBER,GOODS_ID,GOODS_NUMBER,APPLY_USER,APPLY_TIME,STATE,ORDER_AUDIT_USER,
+    ORDER_AUDIT_TIME,PAY_AUDIT_USER,PAY_AUDIT_TIME,APPLY_DESCRIBE,AUDIT_DESCRIBE)
+        VALUES
+    (#{id},
+    #{orderNumber},
+    #{goodsId},
+    #{goodsNumber},
+    #{applyUser},
+    #{applyTime},
+    #{state},
+    #{orderAuditUser},
+    #{orderAuditTime},
+    #{payAuditUser},
+    #{payAuditTime},
+    #{applyDescribe},
+    #{auditDescribe},)
+
+    </insert>
+
+    <!--修改-->
+        <update id="update" >
+            UPDATE t_purchase_order SET ORDER_NUMBER=#{orderNumber}, GOODS_ID= #{goodsId},GOODS_NUMBER=#{goodsNumber},
+            APPLY_USER =#{applyUser},APPLY_TIME=#{applyTime},STATE=#{state},ORDER_AUDIT_USER=#{orderAuditUser},
+            ORDER_AUDIT_TIME=#{orderAuditTime},PAY_AUDIT_USER=#{payAuditUser},PAY_AUDIT_TIME=#{payAuditTime},
+            APPLY_DESCRIBE=#{applyDescribe},AUDIT_DESCRIBE=#{auditDescribe}
+            where ID=#{id}
+        </update>
+    <!--删除-->
+    <delete id="delete" parameterType="java.lang.String">
+
+        DELETE FROM t_purchase_order WHERE ID=#{id}
+    </delete>
+    
+    <select id="dataCount" resultType="java.lang.Integer">
+        SELECT count(1) FROM t_purchase_order
+    </select>
+
+    <select id="selectAll" resultMap="PurchaseOrderResult">
+        select * from t_purchase_order t
+       <where>
+        <if test="applyUser != null and applyUser != ''">
+            and t.APPLY_USER = #{applyUser,jdbcType=VARCHAR}
+        </if>
+        <if test="state != null and state != ''">
+            and t.STATE = #{state,jdbcType=VARCHAR}
+        </if>
+       </where>
+        order by t.ID asc
+        limit #{start,jdbcType=DECIMAL},#{end,jdbcType=DECIMAL}
+    </select>
+</mapper>

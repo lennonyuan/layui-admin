@@ -89,7 +89,7 @@
         join t_supplier ts on    t.SUPPLIER_ID=ts.ID
        <where>
         <if test="SupplierId != null and SupplierId != ''">
-            and SUPPILER_ID = #{SupplierId,jdbcType=VARCHAR}
+            and SUPPLIER_ID = #{SupplierId,jdbcType=VARCHAR}
 
 
         </if>

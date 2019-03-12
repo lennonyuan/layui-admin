@@ -22,7 +22,6 @@ layui.config({
 
         //初始化下拉框
         $api.GetIdMenu(null,function (res) {
-            //TODO("去重")
             var data = res.data;
             var list = new Array();
             if(data.length > 0){
