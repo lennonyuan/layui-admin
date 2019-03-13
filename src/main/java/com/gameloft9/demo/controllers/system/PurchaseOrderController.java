@@ -6,11 +6,16 @@ import com.gameloft9.demo.mgrframework.beans.response.PageResultBean;
 import com.gameloft9.demo.mgrframework.beans.response.ResultBean;
 import com.gameloft9.demo.service.impl.system.PurchaseOrderServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -30,42 +35,43 @@ public class PurchaseOrderController {
 
     @RequestMapping("/selectall")
     @ResponseBody
-    public IResult selectall(){
-        return  new ResultBean<List>(service.selectByAll());
+    public IResult selectall() {
+        return new ResultBean<List>(service.selectByAll());
     }
 
     @RequestMapping("/pagelist")
     @ResponseBody
-    public IResult pagelist(String page,String limit,String applyUser,String state){
-        return new PageResultBean<List>(service.selectAll(page, limit, applyUser, state),service.dataCount());
+    public IResult pagelist(String page, String limit, String applyUser, String state) {
+        return new PageResultBean<List>(service.selectAll(page, limit, applyUser, state), service.dataCount());
     }
 
     @RequestMapping("/list")
     @ResponseBody
-    public IResult getById(String id){
-        return  new ResultBean<PurchaseOrder>(service.selectByPrimaryKey(id));
+    public IResult getById(String id) {
+        return new ResultBean<PurchaseOrder>(service.selectByPrimaryKey(id));
     }
 
-    @RequestMapping(value = "/add",method = RequestMethod.POST)
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public  IResult  addition(PurchaseOrder purchaseOrder){
+    public IResult addition(PurchaseOrder purchaseOrder) {
         boolean insert = service.insert(purchaseOrder);
-        if (insert){
-            return  new ResultBean<String>(purchaseOrder.getId());
-        }else{
-            return new ResultBean<>(null,"插入失败");
+        if (insert) {
+            return new ResultBean<String>(purchaseOrder.getId());
+        } else {
+            return new ResultBean<>(null, "插入失败");
         }
     }
 
-    @RequestMapping(value = "/update" ,method = RequestMethod.POST)
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public IResult update(PurchaseOrder purchaseOrder){
-        return  new ResultBean<Boolean>(service.update(purchaseOrder));
+    public IResult update(PurchaseOrder purchaseOrder) {
+
+        return new ResultBean<Boolean>(service.update(purchaseOrder));
     }
 
     @RequestMapping("/delete")
     @ResponseBody
-    public IResult delete(String id){
+    public IResult delete(String id) {
         return new ResultBean<Boolean>(service.delete(id));
     }
 
@@ -73,12 +79,21 @@ public class PurchaseOrderController {
     @RequestMapping("/updatestate")
     @ResponseBody
     public IResult stepback(String id) {
-        return  new ResultBean<Boolean>(service.updatestepback(id));
+        return new ResultBean<Boolean>(service.updatestepback(id));
     }
 
     @RequestMapping("/updatestateforward")
     @ResponseBody
-    public IResult stateForward(String id){
+    public IResult stateForward(String id) {
         return new ResultBean<Boolean>(service.stateForward(id));
     }
+
+    @InitBinder
+    public void initBinder(WebDataBinder binder) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        dateFormat.setLenient(false);
+        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
+
+    }
+
 }

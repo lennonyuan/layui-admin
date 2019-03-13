@@ -189,7 +189,7 @@ layui.config({
         };
 
         $api.Addpo(req,function (data) {
-            layer.msg("修改成功！",{time:1000},function () {
+            layer.msg("采购订单已生成，请提交...",{time:1000},function () {
                 layer.closeAll("iframe");
                 //刷新父页面
                 parent.location.reload();

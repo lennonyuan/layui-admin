@@ -213,6 +213,10 @@ layui.define(['$tool','jquery'], function (exports) {
         Addpo:function(req,successCallback,errorCallback){
             doPost($tool.getContext() + '/po/add',req,successCallback,errorCallback);
         },
+        getPoById:function(req,successCallback,errorCallback){
+            doPost($tool.getContext() + '/po/list',req,successCallback,errorCallback);
+        },
+
 
 
         /**/

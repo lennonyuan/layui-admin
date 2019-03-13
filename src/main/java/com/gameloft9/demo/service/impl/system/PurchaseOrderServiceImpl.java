@@ -45,6 +45,7 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
         order.setId(uuid);
         order.setOrderNumber( uuid);
         order.setGoodsId(purchaseOrder.getGoodsId());
+        order.setGoodsNumber(purchaseOrder.getGoodsNumber());
         order.setApplyUser(purchaseOrder.getApplyUser());
         order.setApplyTime(date);
         order.setState("0");
@@ -64,11 +65,11 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
 
     @Override
     public boolean update(PurchaseOrder purchaseOrder) {
-        String uuid = UUIDUtil.getUUID();
-        PurchaseOrder pojo = mapper.selectByPrimaryKey(uuid);
-        CheckUtil.check(pojo==null,"ID已存在");
+
+
+
         PurchaseOrder order = new PurchaseOrder();
-        order.setId(uuid);
+        order.setId(purchaseOrder.getId());
         order.setOrderNumber(purchaseOrder.getOrderNumber());
         order.setGoodsId(purchaseOrder.getGoodsId());
         order.setGoodsNumber(purchaseOrder.getGoodsNumber());

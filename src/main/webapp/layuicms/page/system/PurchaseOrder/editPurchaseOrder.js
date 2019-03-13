@@ -26,7 +26,7 @@ layui.config({
         initDate();
         initDate2();
         initDate3();
-        $("#state").val("已提交")
+       // $("#state").val("已提交")
         //初始化下拉框
         $api.GetMaterialall(null,function (res) {
             var data = res.data;
@@ -78,20 +78,34 @@ layui.config({
         var queryArgs = $tool.getQueryParam();//获取查询参数
         var wid = queryArgs['Id'];
 
-        var url = $tool.getContext()+'/material/get';
+        var url = $tool.getContext()+'/po/list';
         var req = {
             id:wid
         };
 
-        $api.GetMaterial(req,function (res) {
-            var data = res.data;
 
-            $("[name='GoodsName']").val(data.goodsName);
-            $("[name='GoodsType']").val(data.goodsType);
-            $("[name='GoodsDescribe']").val(data.goodsDescribe);
+
+
+        $api.getPoById(req,function (res) {
+            var data = res.data;
+            $("[name='goodsNumber']").val(data.goodsNumber);
+            //$("[name='goodsId']").val(data.goodsId);
+            $("[name='orderNumber']").val(data.orderNumber);
+            $("[name='applyUser']").val(data.applyUser);
+            $("[name='applyTime']").val(data.applyTime);
+            $("[name='state']").val(data.state);
+            $("[name='orderAuditUser']").val(data.orderAuditUser);
+            $("[name='orderAuditTime']").val(data.orderAuditTime);
+            $("[name='payAuditUser']").val(data.payAuditUser);
+            $("[name='payAuditTime']").val(data.payAuditTime);
+            $("[name='applyDescribe']").val(data.applyDescribe);
+            $("[name='auditDescribe']").val(data.auditDescribe);
+
            // menu_roleIds = data.roleIdList;//保存菜单所属角色id列表，初始化选中时用
             //加载角色列表
             // loadRoleList();
+
+
             form.render();//重新绘制表单，让修改生效
         });
 
@@ -134,10 +148,20 @@ layui.config({
     form.on("submit(editMenu)", function (data) {
         var queryArgs = $tool.getQueryParam();//获取查询参数
         console.log(queryArgs)
-        var GoodsName = data.field.GoodsName;
-        var GoodsType = data.field.GoodsType;
-        var GoodsDescribe = data.field.GoodsDescribe;
+        var goodsNumber =data.goodsNumber;
+        var goodsId= data.goodsId;
+        var orderNumber= data.orderNumber;
+        var applyUser=data.applyUser;
+        var applyTime=data.applyTime;
+        var  state=data.state;
+        var orderAuditUser=data.orderAuditUser;
+        var  orderAuditTime=data.orderAuditTime;
+        var payAuditUser= data.payAuditUser;
+        var  payAuditTime=data.payAuditTime;
+        var applyDescribe=data.applyDescribe;
+        var auditDescribe=data.auditDescribe;
 
+        
         /*var sort = data.field.sort;
         var idList = new Array();*/
 
@@ -149,16 +173,26 @@ layui.config({
         }
 */
         //请求
-        var url = $tool.getContext()+'/material/update';
+        var url = $tool.getContext()+'/po/update';
         var req = {
-            Id:queryArgs['Id'],
-            GoodsName:GoodsName,
-            GoodsType:GoodsType,
-            GoodsDescribe:GoodsDescribe
+            id:queryArgs['Id'],
+             goodsNumber :goodsNumber,
+             goodsId: goodsId,
+             orderNumber: orderNumber,
+             applyUser:applyUser,
+             applyTime:applyTime,
+             state:state,
+             orderAuditUser:orderAuditUser,
+             orderAuditTime:orderAuditTime,
+             payAuditUser: payAuditUser,
+             payAuditTime:payAuditTime,
+             applyDescribe:applyDescribe,
+             auditDescribe:auditDescribe,
+           
          //   roleIdList:idList
         };
 
-        $api.UpdateMaterial(req,function (data) {
+        $api.editPurchaseOrder(req,function (data) {
             layer.msg("修改成功！",{time:1000},function () {
                 layer.closeAll("iframe");
                 //刷新父页面

@@ -71,7 +71,7 @@
     #{payAuditUser},
     #{payAuditTime},
     #{applyDescribe},
-    #{auditDescribe},)
+    #{auditDescribe})
 
     </insert>
 

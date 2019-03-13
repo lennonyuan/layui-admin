@@ -21,24 +21,26 @@ public class PurchaseOrder {
 
     private String goodsNumber;
     private String applyUser;
-    @JsonFormat(timezone="GMT+8", pattern = "yyyy-MM-dd hh:mm:ss")
+    @JsonFormat(timezone="GMT+8", pattern = "yyyy-MM-dd")
     private Date applyTime;
     /*申请时间*/
 
     private String state;
     private String orderAuditUser;
-    @JsonFormat(timezone="GMT+8", pattern = "yyyy-MM-dd hh:mm:ss")
+   @JsonFormat(timezone="GMT+8", pattern = "yyyy-MM-dd")
     private Date orderAuditTime;
     /*订单审核时间*/
 
     private String payAuditUser;
 
-    @JsonFormat(timezone="GMT+8", pattern = "yyyy-MM-dd hh:mm:ss")
+    @JsonFormat(timezone="GMT+8", pattern = "yyyy-MM-dd")
     private Date payAuditTime;
     /*支付审核时间*/
 
     private String applyDescribe;
 
     private String auditDescribe;
+
+
 
 }
