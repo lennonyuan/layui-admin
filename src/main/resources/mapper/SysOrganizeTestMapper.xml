@@ -16,6 +16,7 @@
         <result column="CREATE_DATE" property="createDate" jdbcType="TIMESTAMP"/>
         <result column="UPDATE_DATE" property="updateDate" jdbcType="TIMESTAMP"/>
     </resultMap>
+
     <sql id="Base_Column_List">
         <!--
           WARNING - @mbggenerated
@@ -23,6 +24,7 @@
           This element was generated on Thu Dec 07 15:21:02 CST 2017.
         -->
         ID, PARENT_ID, ORGANIZE_NAME, ORGANIZE_CODE,TREE_LEVEL, TREE_PATH, CREATE_DATE, UPDATE_DATE
+
     </sql>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
         <!--

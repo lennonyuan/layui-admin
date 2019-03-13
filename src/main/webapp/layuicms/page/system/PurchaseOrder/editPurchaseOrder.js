@@ -14,7 +14,6 @@ layui.config({
         $api = layui.$api;
 
 
-
     var roleIdList = new Array();//所有的角色id列表
     var menu_roleIds =[];//菜单所属角色列表
 
@@ -95,6 +94,7 @@ layui.config({
             // loadRoleList();
             form.render();//重新绘制表单，让修改生效
         });
+
     }
 
     /**

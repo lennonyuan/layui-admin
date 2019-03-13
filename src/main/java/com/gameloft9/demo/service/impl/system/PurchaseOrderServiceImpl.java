@@ -8,8 +8,9 @@ import com.gameloft9.demo.service.beans.system.PageRange;
 import com.gameloft9.demo.utils.UUIDUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import java.util.Date;
 import java.util.List;
+
 
 /**
  *功能描述
@@ -36,7 +37,24 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
 
     @Override
     public boolean insert(PurchaseOrder purchaseOrder) {
-        if (mapper.insert(purchaseOrder)>0){
+        PurchaseOrder order = new PurchaseOrder();
+        String uuid = UUIDUtil.getUUID();
+        PurchaseOrder order1 = mapper.selectByPrimaryKey(uuid);
+        CheckUtil.check(order1==null,"采购订单id已存在");
+        Date date = new Date();
+        order.setId(uuid);
+        order.setOrderNumber( uuid);
+        order.setGoodsId(purchaseOrder.getGoodsId());
+        order.setApplyUser(purchaseOrder.getApplyUser());
+        order.setApplyTime(date);
+        order.setState("0");
+        order.setOrderAuditUser(purchaseOrder.getOrderAuditUser());
+        order.setOrderAuditTime(date);
+        order.setPayAuditUser(purchaseOrder.getPayAuditUser());
+        order.setPayAuditTime(date);
+        order.setApplyDescribe(purchaseOrder.getApplyDescribe());
+        order.setAuditDescribe(purchaseOrder.getAuditDescribe());
+        if (mapper.insert(order)>0){
             return true;
         }else{
             return false;
@@ -70,6 +88,24 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
             return false;
         }
     }
+    //工作流
+    @Override
+    public boolean stateForward(String id) {
+        String s=null;
+        PurchaseOrder purchaseOrder = mapper.selectByPrimaryKey(id);
+        String state = purchaseOrder.getState();
+        Integer state1 = Integer.parseInt(state);
+        if (state1>=0 && state1 <5){
+            state1 ++;
+            s = String.valueOf(state1);
+        }
+        if(mapper.updatestepback(s,id)>0){
+
+            return true;
+        }else {
+            return false;
+        }
+    }
 
     @Override
     public boolean delete(String id) {
@@ -83,6 +119,21 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
     @Override
     public int dataCount() {
         return mapper.dataCount();
+    }
+
+    //修改状态
+    @Override
+    public boolean updatestepback(String id) {
+        PurchaseOrder order = mapper.selectByPrimaryKey(id);
+        String s = order.getState();
+        Integer state1 =  Integer.parseInt(s);
+        Integer state2 = state1-1;
+        String s1 = String.valueOf(state2);
+        if (mapper.updatestepback(s1,id)>0){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     @Override

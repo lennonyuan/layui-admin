@@ -27,6 +27,8 @@ public interface PurchaseOrderMapper {
 
     int dataCount();
 
+    int updatestepback(@Param("state") String state,@Param("id") String id);
+
     /**
      *
      * @param start

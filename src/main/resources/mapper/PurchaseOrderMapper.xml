@@ -106,4 +106,10 @@
         order by t.ID asc
         limit #{start,jdbcType=DECIMAL},#{end,jdbcType=DECIMAL}
     </select>
+
+    <update id="updatestepback" >
+        update t_purchase_order set STATE=#{state}
+        where ID = #{id}
+    </update>
+
 </mapper>

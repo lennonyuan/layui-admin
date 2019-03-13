@@ -39,6 +39,8 @@ layui.config({
         });
 
 
+
+
         //初始化下拉框
         $api.purchaseOrderall(null,function (res) {
             var data2 = res.data;
@@ -72,19 +74,19 @@ layui.config({
             , cols: [[ //表头
                   {type:'numbers',title:'序号',fixed: 'left'}
                  /* , {field: 'id', title: 'ID', width: '4%'}*/
-                , {field: 'orderNumber', title: '订单编号'/*,templet: '#tmp'*/, width: '10%'}
+                , {field: 'orderNumber', title: '订单编号', width: '10%'}
                 , {field: 'goodsId', title: '原料ID', width: '6%'}
                 , {field: 'goodsNumber', title: '原料数量', width: '10%'}
                 , {field: 'applyUser', title: '申请人', width: '10%'}
                 , {field: 'applyTime', title: '申请时间', width: '10%'}
-                , {field: 'state', title: '订单状态', width: '10%'}
+                , {field: 'state', title: '订单状态',templet:'#tmp', width: '10%'}
                 , {field: 'orderAuditUser', title: '订单审核人', width: '10%'}
                 , {field: 'orderAuditTime', title: '订单审核时间', width: '10%'}
                 , {field: 'payAuditUser', title: '支付审核人', width: '10%'}
                 , {field: 'payAuditTime', title: '支付审核时间', width: '10%'}
                 , {field: 'applyDescribe', title: '申请描述', width: '10%'}
                 , {field: 'auditDescribe', title: '审核描述', width: '10%'}
-                , {fixed: 'right', title: '操作', width:260, align: 'center', toolbar: '#barDemo'} //这里的toolbar值是模板元素的选择器
+                , {fixed: 'right', title: '操作', width:280, align: 'center', toolbar: '#barDemo'} //这里的toolbar值是模板元素的选择器
             ]]
             , done: function (res, curr) {//请求完毕后的回调
                 //如果是异步请求数据方式，res即为你接口返回的信息.curr：当前页码
@@ -103,8 +105,11 @@ layui.config({
             } else if(layEvent === 'edit') { //编辑
                 //do something
                 editMatrial(row.id);
-            }else if (layEvent=='audi'){
+            }else if (layEvent==='audi'){
+
                 audi(row.id);
+            } else if (layEvent=='stepback'){
+                stepback(row.id);
             }
         });
     }
@@ -194,23 +199,41 @@ layui.config({
         /*审核*/
     //TODO
         function audi(id){
-            var index = layui.layer.open({
-                title: "编辑角色",
-                type: 2,
-                content: "editMaterial.html?Id="+id,
-                success: function (layero, index) {
-                    setTimeout(function () {
-                        layui.layer.tips('点击此处返回角色列表', '.layui-layer-setwin .layui-layer-close', {
-                            tips: 3
-                        });
-                    }, 500)
-                }
-            });
+            layer.confirm('确认？', function (confirmIndex) {
+                layer.close(confirmIndex);//关闭confirm
+                //向服务端发送删除指令
+                var req = {
+                    id:id
+                };
 
-        //改变窗口大小时，重置弹窗的高度，防止超出可视区域（如F12调出debug的操作）
-        $(window).resize(function () {
-            layui.layer.full(index);
-        });
-        layui.layer.full(index);
+                $api.stepforward(req,function (data) {
+                    layer.msg("操作成功",{time:1000},function(){
+                        //obj.del(); //删除对应行（tr）的DOM结构
+                        //重新加载表格
+                        tableIns.reload();
+                    });
+                });
+            });
     }
+        //撤回
+    function stepback(id){
+        layer.confirm('确认撤回吗？', function (confirmIndex) {
+            layer.close(confirmIndex);//关闭confirm
+            //向服务端发送删除指令
+            var req = {
+                id:id
+            };
+
+            $api.stepbackFunction(req,function (data) {
+                layer.msg("撤回成功",{time:1000},function(){
+                    //obj.del(); //删除对应行（tr）的DOM结构
+                    //重新加载表格
+                    tableIns.reload();
+                });
+            });
+        });
+    }
+
+
+
 });

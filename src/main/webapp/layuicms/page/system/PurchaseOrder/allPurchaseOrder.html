@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>材料管理</title>
+    <title>采购订单</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../../../lib/layui/css/layui.css" media="all"/>
     <link rel="stylesheet" href="//at.alicdn.com/t/font_tnyc012u2rlwstt9.css" media="all"/>
     <link rel="stylesheet" href="../../../common/css/user.css" media="all"/>
+
 </head>
 <body class="childrenBody">
 <!--搜索栏-->
@@ -26,7 +27,17 @@
         <div class="layui-inline">
             <label class="layui-form-label">订单状态</label>
             <div class="layui-input-block">
-                <select id="state" name="state"></select>
+                <select  name="state" >
+                    <option value="">--请选择--</option>
+                    <option value="0">1.未提交</option>
+                    <option value="1">2.已提交</option>
+                    <option value="2">3.未审核</option>
+                    <option value="3">4.已审核</option>
+                    <option value="4">5.未支付</option>
+                    <option value="5">6.已支付</option>
+                </select>
+
+
             </div>
         </div>
 
@@ -34,7 +45,7 @@
             <a class="layui-btn search_btn" lay-submit="" lay-filter="queryMaterial">查询</a>
         </div>
         <div class="layui-inline">
-            <a class="layui-btn layui-btn-normal usersAdd_btn" >添加采购订单</a>
+            <a class="layui-btn layui-btn-normal usersAdd_btn" >申请采购</a>
         </div>
     </form>
 </blockquote>
@@ -49,9 +60,50 @@
 <!--toolbar 模板-->
 <script type="text/html" id="barDemo">
     <!--通过lay-event定义事件-->
+
+    {{#  if(d.state == '0'){ }}
     <a class="layui-btn layui-btn-sm" lay-event="edit"><i class="layui-icon">&#xe642;</i>编辑</a>
-    <a class="layui-btn layui-btn-warm layui-btn-sm" lay-event="audi"><i class="layui-icon">&#xe643;</i>审核</a>
+    <a class="layui-btn layui-btn-warm layui-btn-sm" lay-event="audi"><i class="layui-icon">&#xe643;</i>提交</a>
     <a class="layui-btn layui-btn-danger layui-btn-sm" lay-event="del"><i class="layui-icon">&#xe640;</i>删除</a>
+    {{# } else if(d.state == '1'){ }}
+    <a class="layui-btn layui-btn-sm" lay-event="stepback"><i class="layui-icon">&#xe65c;</i>撤回</a>
+    <a class="layui-btn layui-btn-warm layui-btn-sm" lay-event="audi"><i class="layui-icon">&#xe641;</i>提审</a>
+    <a class="layui-btn layui-btn-danger layui-btn-sm" lay-event="del"><i class="layui-icon">&#xe640;</i>删除</a>
+    {{#  } else if(d.state == '2'){ }}
+    <a class="layui-btn layui-btn-sm  layui-btn-disabled" lay-event="stepback"><i class="layui-icon">&#xe65c;</i>撤回</a>
+    <a class="layui-btn layui-btn-warm layui-btn-sm" lay-event="audi"><i class="layui-icon">&#xe655;</i>审核</a>
+    <a class="layui-btn layui-btn-danger layui-btn-sm" lay-event="del"><i class="layui-icon">&#xe640;</i>删除</a>
+    {{# } else if(d.state == '3'){ }}
+    <a class="layui-btn layui-btn-sm  layui-btn-disabled" lay-event="stepback"><i class="layui-icon">&#xe65c;</i>撤回</a>
+    <a class="layui-btn layui-btn-warm layui-btn-sm" lay-event="audi"><i class="layui-icon">&#xe602;</i>购入</a>
+    <a class="layui-btn layui-btn-danger layui-btn-sm" lay-event="del"><i class="layui-icon">&#xe640;</i>删除</a>
+    {{# } else if(d.state == '4'){ }}
+    <a class="layui-btn layui-btn-sm  layui-btn-disabled" lay-event="stepback"><i class="layui-icon">&#xe65c;</i>撤回</a>
+    <a class="layui-btn layui-btn-warm layui-btn-sm" lay-event="audi"><i class="layui-icon">&#xe605;</i>支付</a>
+    <a class="layui-btn layui-btn-danger layui-btn-sm" lay-event="del"><i class="layui-icon">&#xe640;</i>删除</a>
+    {{#  } else if(d.state == '5'){ }}
+    <!--<a class="layui-btn-black layui-btn-sm" lay-event="check">采购申请完成</a>-->
+    <label >采购申请单已完成</label>
+    {{#  } }}
+</script>
+
+<script type="text/html" id="tmp">
+
+    {{#  if(d.state == '0'){ }}
+        <span>未提交</span>
+    {{#  } else if(d.state == '1'){ }}
+    <span>已提交</span>
+    {{#  } else if(d.state == '2'){ }}
+    <span>未审核</span>
+
+    {{#  } else if(d.state == '3'){ }}
+    <span>已审核</span>
+    {{#  } else if(d.state == '4'){ }}
+    <span>未支付</span>
+    {{#  } else if(d.state == '5'){ }}
+    <span>已支付</span>
+
+    {{#  } }}
 
 </script>
 <!--超级管理员模板-->

@@ -204,6 +204,15 @@ layui.define(['$tool','jquery'], function (exports) {
         editPurchaseOrder: function (req, config, successCallback, errorCallback) {
             doPost($tool.getContext() + '/po/update', req, config, successCallback, errorCallback);
         },
+        stepbackFunction: function (req, config, successCallback, errorCallback) {
+            doPost($tool.getContext() + '/po/updatestate', req, config, successCallback, errorCallback);
+        },
+        stepforward: function (req, config, successCallback, errorCallback) {
+            doPost($tool.getContext() + '/po/updatestateforward', req, config, successCallback, errorCallback);
+        },
+        Addpo:function(req,successCallback,errorCallback){
+            doPost($tool.getContext() + '/po/add',req,successCallback,errorCallback);
+        },
 
 
         /**/

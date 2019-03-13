@@ -18,6 +18,12 @@ public interface PurchaseOrderService {
     boolean delete (String id);
 
     int dataCount();
+    /*撤回操作*/
+    boolean updatestepback(String id);
+
+    /*工作流*/
+    boolean stateForward(String id);
+
 
     /**
      *

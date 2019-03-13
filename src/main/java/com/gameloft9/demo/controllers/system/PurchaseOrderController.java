@@ -68,4 +68,17 @@ public class PurchaseOrderController {
     public IResult delete(String id){
         return new ResultBean<Boolean>(service.delete(id));
     }
+
+
+    @RequestMapping("/updatestate")
+    @ResponseBody
+    public IResult stepback(String id) {
+        return  new ResultBean<Boolean>(service.updatestepback(id));
+    }
+
+    @RequestMapping("/updatestateforward")
+    @ResponseBody
+    public IResult stateForward(String id){
+        return new ResultBean<Boolean>(service.stateForward(id));
+    }
 }
