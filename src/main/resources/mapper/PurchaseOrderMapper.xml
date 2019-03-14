@@ -94,7 +94,9 @@
     </select>
 
     <select id="selectAll" resultMap="PurchaseOrderResult">
-        select * from t_purchase_order t
+        select
+        <include refid="Base_Column_List"/>
+        from t_purchase_order t
        <where>
         <if test="applyUser != null and applyUser != ''">
             and t.APPLY_USER = #{applyUser,jdbcType=VARCHAR}
@@ -111,5 +113,28 @@
         update t_purchase_order set STATE=#{state}
         where ID = #{id}
     </update>
+
+    <select id="completeOrder" resultMap="PurchaseOrderResult">
+        select
+        <include refid="Base_Column_List"/>
+        from t_purchase_order t
+        <where>
+            <if test="applyUser != null and applyUser != ''">
+                and t.APPLY_USER = #{applyUser,jdbcType=VARCHAR}
+            </if>
+            <if test="orderAuditUser != null and orderAuditUser != ''">
+                and t.ORDER_AUDIT_USER = #{orderAuditUser,jdbcType=VARCHAR}
+            </if>
+            <if test="1==1">
+                and t.STATE in (5)
+            </if>
+
+        </where>
+
+    </select>
+
+    <select id="completeData" resultType="int">
+        select count(1) from t_purchase_order where STATE=5
+    </select>
 
 </mapper>

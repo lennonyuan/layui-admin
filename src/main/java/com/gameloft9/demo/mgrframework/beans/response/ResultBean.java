@@ -58,6 +58,7 @@ public class ResultBean<T> extends AbstractResult implements Serializable{
 		this.code = code;
 	}
 
+
 	@Override
 	public String toString(){
 		return "[code="+code+",data="+data+"]";

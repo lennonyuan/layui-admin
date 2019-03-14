@@ -57,6 +57,8 @@ public class ExceptionHandler {
         ResultBean<?> result = new ResultBean();
         result.setMsg(e.getMessage());
         result.setCode(ResultBean.SYSTEM_FAIL);
+
         return result;
     }
+
 }

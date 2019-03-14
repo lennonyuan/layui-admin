@@ -13,7 +13,7 @@ public interface PurchaseOrderService {
 
     boolean insert (PurchaseOrder purchaseOrder);
 
-    boolean update(PurchaseOrder purchaseOrder);
+    boolean update(PurchaseOrder purchaseOrder ,String app);
 
     boolean delete (String id);
 
@@ -23,6 +23,9 @@ public interface PurchaseOrderService {
 
     /*工作流*/
     boolean stateForward(String id);
+
+
+    List<PurchaseOrder> compeleteOrder( String page,String limit ,String applyUser, String orderAuditUser);
 
 
     /**
@@ -35,5 +38,7 @@ public interface PurchaseOrderService {
      */
     List<PurchaseOrder> selectAll( String page,String limit ,String applyUser, String state
     );
+
+    int completeData();
 
 }

@@ -68,7 +68,7 @@ layui.config({
         tableIns = table.render({
             elem: '#role-data'
             /*, height: 415*/
-            , url:$tool.getContext() + 'po/pagelist' //数据接口
+            , url:$tool.getContext() + '/po/finish' //数据接口
             , method: 'post'
             , page:true //开启分页
             , cols: [[ //表头
@@ -88,20 +88,9 @@ layui.config({
                 , {field: 'auditDescribe', title: '审核描述', width: '10%'}
                 , {fixed: 'right', title: '操作', width:280, align: 'center', toolbar: '#barDemo'} //这里的toolbar值是模板元素的选择器
             ]]
-           /* , done: function (res, curr) {//请求完毕后的回调
+            , done: function (res, curr) {//请求完毕后的回调
                 //如果是异步请求数据方式，res即为你接口返回的信息.curr：当前页码
-                // console.log($("[data-field='state']>div>span").text());
-                $("[data-field='state']>div>span").each(function(){
-                    console.log($(this).text())
-                    if ($(this).text()=='已支付'){
-                        $(this).parent().parent().parent().hide();
-                    }
-                });
-                if ($("[data-field='state']>div>span").text()=='已支付') {
-                    console.log("12331323");
-                    $("[data-field='state']").css("display","none");
-                }
-            }*/
+            }
         });
 
         //为toolbar添加事件响应

@@ -8,6 +8,7 @@
         <property name="userServiceImpl" ref="sysUserServiceImpl"/>
     </bean>
 
+
     <!--也可以使用JdbcRealm，少写点代码-->
     <!--<bean id="shiroRealm" class="org.apache.shiro.realm.jdbc.JdbcRealm">-->
         <!--<property name="dataSource" ref="dataSource"/>-->

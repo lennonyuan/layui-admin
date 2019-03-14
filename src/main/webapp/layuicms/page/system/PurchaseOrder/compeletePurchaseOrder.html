@@ -24,29 +24,22 @@
                 <select id="applyUser" name="applyUser"></select>
             </div>
         </div>
+
+
         <div class="layui-inline">
-            <label class="layui-form-label">订单状态</label>
+            <label class="layui-form-label">审核人</label>
             <div class="layui-input-block">
-                <select  name="state" >
-                    <option value="">--请选择--</option>
-                    <option value="0">1.未提交</option>
-                    <option value="1">2.已提交</option>
-                    <option value="2">3.未审核</option>
-                    <option value="3">4.已审核</option>
-                    <option value="4">5.未支付</option>
-                    <option value="5">6.已支付</option>
-                </select>
-
-
+                <select id="orderAuditUser" name="orderAuditUser"></select>
             </div>
         </div>
+
+
+
 
         <div class="layui-inline">
             <a class="layui-btn search_btn" lay-submit="" lay-filter="queryMaterial">查询</a>
         </div>
-        <div class="layui-inline">
-            <a class="layui-btn layui-btn-normal usersAdd_btn" >申请采购</a>
-        </div>
+
     </form>
 </blockquote>
 <!--表格区-->
@@ -115,6 +108,6 @@
 <!--一般情况下，一个业务页面引入一个layui.js,config.js和业务js这三个js就够了-->
 <script type="text/javascript" src="../../../lib/layui/layui.js"></script>
 <script type="text/javascript" src="../../../common/js/config.js"></script>
-<script type="text/javascript" src="allPurchaseOrder.js"></script>
+<script type="text/javascript" src="compeletePurchaseOrder.js"></script>
 </body>
 </html>

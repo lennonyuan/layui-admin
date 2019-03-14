@@ -64,9 +64,9 @@ public class PurchaseOrderController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public IResult update(PurchaseOrder purchaseOrder) {
+    public IResult update(PurchaseOrder purchaseOrder,String app) {
 
-        return new ResultBean<Boolean>(service.update(purchaseOrder));
+        return new ResultBean<Boolean>(service.update(purchaseOrder,app));
     }
 
     @RequestMapping("/delete")
@@ -88,9 +88,15 @@ public class PurchaseOrderController {
         return new ResultBean<Boolean>(service.stateForward(id));
     }
 
+    @RequestMapping(value = "/finish",method = RequestMethod.POST)
+    @ResponseBody
+    public IResult complete(String page,String limit ,String applyUser, String orderAuditUser){
+        return  new PageResultBean<List>(service.compeleteOrder(page,limit,applyUser,orderAuditUser),service.completeData());
+    }
+
     @InitBinder
     public void initBinder(WebDataBinder binder) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         dateFormat.setLenient(false);
         binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
 

@@ -4,10 +4,10 @@ import lombok.Data;
 
 @Data
 public class DepotInventory {
-    private String Id;
-    private String Type;
-    private String GoodsId;
-    private String GoodsNumber;
+    private String id;
+    private String goodsType;
+    private String goodsId;
+    private String goodsNumber;
 
 
 }

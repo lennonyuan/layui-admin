@@ -79,14 +79,14 @@
     <div class="layui-form-item  ">
         <label class="layui-form-label">订单审核</label>
         <div class="layui-input-block layui-inline">
-            <input id="orderAuditTime" type="text" class="layui-input" name="orderAuditTime"  placeholder="请选择订单审核时间 (开始 到 结束)">
+            <input id="orderAuditTime" type="text" class="layui-input" name="orderAuditTime"  placeholder="待审核" disabled>
         </div>
     </div>
 
     <div class="layui-form-item  ">
         <label class="layui-form-label">支付审核</label>
         <div class="layui-input-block layui-inline">
-            <input id="payAuditTime" type="text" class="layui-input" name="payAuditTime"  placeholder="请选择支付审核时间 (开始 到 结束)">
+            <input id="payAuditTime" type="text" class="layui-input" name="payAuditTime"  placeholder="待支付" disabled>
         </div>
     </div>
 
@@ -102,7 +102,7 @@
     <div class="layui-form-item layui-inline  ">
         <label class="layui-form-label">订单审核人</label>
         <div class="layui-input-block ">
-            <input type="text" class="layui-input" name="orderAuditUser"  placeholder="请输入订单审核人">
+            <input type="text" class="layui-input" name="orderAuditUser"  placeholder="待审核" disabled>
         </div>
     </div>
 
@@ -113,7 +113,7 @@
     <div class="layui-form-item layui-inline">
         <label class="layui-form-label">支付审核人</label>
         <div class="layui-input-block">
-            <input type="text" class="layui-input" name="payAuditUser"  placeholder="请输入支付审核人">
+            <input type="text" class="layui-input" name="payAuditUser"  placeholder="待支付" disabled>
         </div>
     </div>
 
@@ -128,12 +128,12 @@
             <textarea name="applyDescribe" placeholder="请输入内容" class="layui-textarea"></textarea>
         </div>
     </div>
-    <div class="layui-form-item layui-form-text">
+   <!-- <div class="layui-form-item layui-form-text">
         <label class="layui-form-label">审核描述</label>
         <div class="layui-input-block">
-            <textarea name="auditDescribe" placeholder="请输入内容" class="layui-textarea"></textarea>
+            <textarea name="auditDescribe" placeholder="请输入内容" class="layui-textarea" disabled></textarea>
         </div>
-    </div>
+    </div>-->
 
 
 
@@ -150,7 +150,7 @@
      </div>-->
     <div class="layui-form-item ">
         <div class="layui-input-block">
-            <button class="layui-btn" lay-submit="" lay-filter="editMenu">确认修改</button>
+            <button class="layui-btn" lay-submit="" lay-filter="editMenu">重新提交审核</button>
             <button type="reset" class="layui-btn layui-btn-primary">重置</button>
         </div>
     </div>

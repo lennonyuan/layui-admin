@@ -36,6 +36,7 @@ public class ShiroConfigService {
     public Map<String, String> loadFilterChainDefinitions() {
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
         List<SysAccessPermissionTest> list = sysAccessPermissionServiceImpl.getAll();
+        //遍历每个权限
         for (SysAccessPermissionTest item : list) {
             filterChainDefinitionMap.put(item.getUrl(), item.getRoles());
         }

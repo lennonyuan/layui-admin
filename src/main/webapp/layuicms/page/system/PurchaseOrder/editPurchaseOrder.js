@@ -27,7 +27,9 @@ layui.config({
         initDate2();
         initDate3();
        // $("#state").val("已提交")
-        //初始化下拉框
+    }
+    //初始化下拉框
+    function selectMaterialall(hh){
         $api.GetMaterialall(null,function (res) {
             var data = res.data;
             if (data.length > 0) {
@@ -36,6 +38,7 @@ layui.config({
                     html += '<option value="' + data[i].id + '">' + data[i].id +'] ---------- ' +data[i].goodsName + '</option>>';
                 }
                 $('#goodsId').append($(html));
+                $('#goodsId').val(hh);
                 form.render();
             }
         });
@@ -88,18 +91,22 @@ layui.config({
 
         $api.getPoById(req,function (res) {
             var data = res.data;
+            console.log(res);
             $("[name='goodsNumber']").val(data.goodsNumber);
-            //$("[name='goodsId']").val(data.goodsId);
+
+            selectMaterialall(data.goodsId);
+           // $("[name='goodsId']").val(data.goodsId);
+
             $("[name='orderNumber']").val(data.orderNumber);
             $("[name='applyUser']").val(data.applyUser);
             $("[name='applyTime']").val(data.applyTime);
             $("[name='state']").val(data.state);
-            $("[name='orderAuditUser']").val(data.orderAuditUser);
-            $("[name='orderAuditTime']").val(data.orderAuditTime);
-            $("[name='payAuditUser']").val(data.payAuditUser);
-            $("[name='payAuditTime']").val(data.payAuditTime);
+            //$("[name='orderAuditUser']").val(data.orderAuditUser);
+            //$("[name='orderAuditTime']").val(data.orderAuditTime);
+            //$("[name='payAuditUser']").val(data.payAuditUser);
+            //$("[name='payAuditTime']").val(data.payAuditTime);
             $("[name='applyDescribe']").val(data.applyDescribe);
-            $("[name='auditDescribe']").val(data.auditDescribe);
+            //$("[name='auditDescribe']").val(data.auditDescribe);
 
            // menu_roleIds = data.roleIdList;//保存菜单所属角色id列表，初始化选中时用
             //加载角色列表
@@ -147,19 +154,20 @@ layui.config({
      * */
     form.on("submit(editMenu)", function (data) {
         var queryArgs = $tool.getQueryParam();//获取查询参数
-        console.log(queryArgs)
-        var goodsNumber =data.goodsNumber;
-        var goodsId= data.goodsId;
-        var orderNumber= data.orderNumber;
-        var applyUser=data.applyUser;
-        var applyTime=data.applyTime;
-        var  state=data.state;
-        var orderAuditUser=data.orderAuditUser;
-        var  orderAuditTime=data.orderAuditTime;
-        var payAuditUser= data.payAuditUser;
-        var  payAuditTime=data.payAuditTime;
-        var applyDescribe=data.applyDescribe;
-        var auditDescribe=data.auditDescribe;
+        //console.log(queryArgs)
+        var goodsNumber =data.field.goodsNumber;
+        var goodsId= data.field.goodsId;
+        var orderNumber= data.field.orderNumber;
+        var applyUser=data.field.applyUser;
+        var applyTime=data.field.applyTime;
+        var app = data.field.applyTime;
+        var  state=data.field.state;
+        var orderAuditUser=data.field.orderAuditUser;
+        var  orderAuditTime=data.field.orderAuditTime;
+        var payAuditUser= data.field.payAuditUser;
+        var  payAuditTime=data.field.payAuditTime;
+        var applyDescribe=data.field.applyDescribe;
+        var auditDescribe=data.field.auditDescribe;
 
         
         /*var sort = data.field.sort;
@@ -182,6 +190,7 @@ layui.config({
              applyUser:applyUser,
              applyTime:applyTime,
              state:state,
+            app:app,
              orderAuditUser:orderAuditUser,
              orderAuditTime:orderAuditTime,
              payAuditUser: payAuditUser,

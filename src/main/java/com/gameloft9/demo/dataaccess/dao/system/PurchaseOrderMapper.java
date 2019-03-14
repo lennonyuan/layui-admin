@@ -29,6 +29,15 @@ public interface PurchaseOrderMapper {
 
     int updatestepback(@Param("state") String state,@Param("id") String id);
 
+    List<PurchaseOrder> completeOrder(
+            @Param("start") int start,
+            @Param("end") int end,
+            @Param("applyUser") String applyUser,
+            @Param("orderAuditUser") String orderAuditUser
+    );
+
+    int completeData();
+
     /**
      *
      * @param start
