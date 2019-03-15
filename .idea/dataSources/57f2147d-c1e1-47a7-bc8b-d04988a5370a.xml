@@ -1395,7 +1395,7 @@ ROLE_ID</ColNames>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="331" parent="243" name="TYPE">
+    <column id="331" parent="243" name="GOODS_TYPE">
       <Position>2</Position>
       <Comment>货品(原料/成品)</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1515,10 +1515,10 @@ ROLE_ID</ColNames>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="349" parent="246" name="ORDER_TYPE">
+    <column id="349" parent="246" name="DEPOT_ORDER_TYPE">
       <Position>2</Position>
       <Comment>仓库单类型</Comment>
-      <DataType>int(11)|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>

@@ -3,7 +3,6 @@ package com.gameloft9.demo.service.impl.system;
 import com.gameloft9.demo.dataaccess.dao.system.PurchaseOrderMapper;
 import com.gameloft9.demo.dataaccess.model.system.PurchaseOrder;
 import com.gameloft9.demo.mgrframework.exceptions.CheckException;
-import com.gameloft9.demo.mgrframework.handler.ExceptionHandler;
 import com.gameloft9.demo.mgrframework.utils.CheckUtil;
 import com.gameloft9.demo.service.api.system.PurchaseOrderService;
 import com.gameloft9.demo.service.beans.system.PageRange;
@@ -11,30 +10,32 @@ import com.gameloft9.demo.utils.UUIDUtil;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.LinkedHashMap;
 import java.util.List;
 
 
-/**
- * 功能描述
- *
- * @author Lennon_Yuan
- * @date 2019/3/12 0012
- * @time 上午 11:23
- */
+ /**
+  * @Author: Lennon_Yuan
+  * @return:
+  * @param null 
+  * @Description:
+  */
+@SuppressWarnings({"ALL", "AlibabaClassMustHaveAuthor"})
 @Service
 public class PurchaseOrderServiceImpl implements PurchaseOrderService {
     @Autowired
     PurchaseOrderMapper mapper;
 
     @Override
+     /**
+      * @author: Lennon_Yuan
+      * @Param: [id]
+      * @Return: com.gameloft9.demo.dataaccess.model.system.PurchaseOrder
+      * @Description:
+      */
     public PurchaseOrder selectByPrimaryKey(String id) {
         return mapper.selectByPrimaryKey(id);
     }
@@ -45,6 +46,7 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
     }
 
     @Override
+
     public boolean insert(PurchaseOrder purchaseOrder) {
         PurchaseOrder order = new PurchaseOrder();
         String uuid = UUIDUtil.getUUID();
@@ -84,6 +86,7 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
     }
 
     @Override
+
     public boolean update(PurchaseOrder purchaseOrder, String app) {
 
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
@@ -120,54 +123,67 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
 
     //工作流
     @Override
+      /**
+       * @author: Lennon_Yuan
+       * @Param: [id]
+       * @Return: boolean
+       * @Description: 操作下一步的方法
+       */
     public boolean stateForward(String id) {
         int i = -1;
         String s = null;
         PurchaseOrder purchaseOrder = mapper.selectByPrimaryKey(id);
         String state = purchaseOrder.getState();
+        //获取实体的state状态进行判断权限
         Integer state1 = Integer.parseInt(state);
+        //获取shiro中存储用户信息
         Subject subject = SecurityUtils.getSubject();
-        ArrayList<String> list = new ArrayList<>();
-        list.add("采购主管");
-        for (String str : list) {
-            if (!subject.hasRole(str)) {
-                if (state1 >= 0 && state1 < 2) {
-                    state1++;
-                    String s1 = String.valueOf(state1);
-                    i = mapper.updatestepback(s1, id);
-                } else {
-                    //TODO
-                    throw new CheckException("没有足够权限完成操作");
-
-                }
-            } else {
-                if (state1 >= 0 && state1 < 5) {
-                    state1++;
-                    String s1 = String.valueOf(state1);
-                    i = mapper.updatestepback(s1, id);
-                } else {
-                    //todo
-                    throw new CheckException("没有足够权限完成操作");
-
-
-                }
+        if (subject.hasRole("采购员") ){
+            if (state1>=0 && state1<2||state1==5){
+                state1++;
+                String s1 = String.valueOf(state1);
+                mapper.updatestepback(s1,id);
+                return true;
+            }else{
+                throw new CheckException("没有足够权限完成操作");
             }
-
-
-        }
-        if (i > 0) {
-            return true;
+        }else if (subject.hasRole("采购主管")){
+                if (state1>=0 && state1<3||state1==5){
+                    state1++;
+                    String s1 = String.valueOf(state1);
+                    mapper.updatestepback(s1,id);
+                    return true;
+                }else{
+                    throw new CheckException("没有足够权限完成操作");
+                }
+        }else  if (subject.hasRole("仓库主管")){
+            if (state1>=6 && state1<8){
+                state1++;
+                String s1 = String.valueOf(state1);
+                mapper.updatestepback(s1,id);
+                return true;
+            }else{
+                throw new CheckException("没有足够权限完成操作");
+            }
+        }else if (subject.hasRole("财务主管")){
+            if (state1>=3 && state1<5){
+                state1++;
+                String s1 = String.valueOf(state1);
+                mapper.updatestepback(s1,id);
+                return true;
+            }else{
+                throw new CheckException("没有足够权限完成操作");
+            }
         }else{
-            //todo
             throw new CheckException("没有足够权限完成操作");
-
-
         }
     }
 
 
     @Override
     public boolean delete(String id) {
+
+
         if (mapper.delete(id) > 0) {
             return true;
         } else {
@@ -182,6 +198,7 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
 
     //修改状态
     @Override
+      
     public boolean updatestepback(String id) {
         PurchaseOrder order = mapper.selectByPrimaryKey(id);
         String s = order.getState();
@@ -196,6 +213,15 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
     }
 
     @Override
+         /**
+          * @Author: Lennon_Yuan
+          * @return: java.util.List<com.gameloft9.demo.dataaccess.model.system.PurchaseOrder>
+          * @param page 
+          * @param limit 
+          * @param applyUser
+          * @param state 
+          * @Description: 带分页的模糊查询
+          */
     public List<PurchaseOrder> selectAll(String page, String limit, String applyUser, String state) {
         PageRange pageRange = new PageRange(page, limit);
         return mapper.selectAll(pageRange.getStart(), pageRange.getEnd(), applyUser, state);

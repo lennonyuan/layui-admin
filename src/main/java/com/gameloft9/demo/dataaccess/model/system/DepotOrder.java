@@ -8,7 +8,7 @@ import java.util.Date;
 @Data
 public class DepotOrder {
     private String id;
-    private String orderType;
+    private String depotOrderType;
     private String goodsId;
     private String goodsNumber;
     private String applyUser;
